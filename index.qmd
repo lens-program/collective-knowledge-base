@@ -39,5 +39,5 @@ each other, we want to see where fields agree, where the same word means differe
 ## Contribute
 
 Anyone in LENS can add a definition, a reference, an example, or a question. See
-[How to contribute](contributing.qmd). Small suggestions can go in a
-[GitHub issue](https://github.com/lens-program/knowledge-base/issues/new/choose).
+[How to contribute](contribute.qmd). Small suggestions can go in a
+[GitHub issue](https://github.com/lens-program/collective-knowledge-base/issues/new/choose).

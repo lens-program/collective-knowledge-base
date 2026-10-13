@@ -3,7 +3,7 @@
 A living, cross-disciplinary reference on **identifiability, recoverability, and related
 concepts**, maintained by members of the [LENS Program](https://github.com/lens-program).
 
-**Site:** https://lens-program.github.io/knowledge-base/
+**Site:** https://lens-program.github.io/collective-knowledge-base/
 
 Each concept page collects definitions from different fields side by side, with citations and
 contributor attribution. Seminar notes link back to the concepts they touch, and unresolved
