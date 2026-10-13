@@ -236,7 +236,7 @@ identifiability of many latent-structure models.
 **References.** [@kruskal1977three; @drton2009lectures; @allman2009identifiability;
 @watanabe2009algebraic]
 
-*Contributed by:* Emily Peterson (2026-10-13), from the LENS BIRS workshop proposal
+*Contributed by:* Emily Peterson (2026-10-13)
 
 ### Perspective: Dynamical systems and systems biology
 
@@ -320,7 +320,7 @@ conditional is proper and a Gibbs sampler appears to run. [@gelfand1999identifia
   its conditional prior (Bayesian perspective). The two descriptions are suggestively related
   but not automatically equivalent. One is local and geometric. The other is probabilistic, and
   may depend on a global parameterization, a disintegration of the prior, and regularity of the
-  fibre. *(under discussion; BIRS proposal Challenge 4)*
+  fibre. *(proposed)*
 
 ### Open questions
 
@@ -338,7 +338,7 @@ conditional is proper and a Gibbs sampler appears to run. [@gelfand1999identifia
 | Name | Date | What |
 |---|---|---|
 | Emily Peterson | 2026-10-13 | Starter entry; needs review by members in each field |
-| Emily Peterson | 2026-10-13 | Algebraic-statistics perspective, identification fibre, fibre–prior question; from the LENS BIRS workshop proposal |
+| Emily Peterson | 2026-10-13 | Algebraic-statistics perspective, identification fibre, fibre–prior question |
 
 <!-- -----------------------------------------------------------------------------------------
      CONCEPT: Structural non-identifiability
@@ -411,7 +411,7 @@ fixed effect.
 **References.** [@besag1991bayesian; @rue2005gaussian; @reich2006effects;
 @hodges2010adding; @paciorek2010importance; @simpson2017penalising]
 
-*Contributed by:* Emily Peterson (2026-10-13), from the LENS BIRS workshop proposal
+*Contributed by:* Emily Peterson (2026-10-13)
 
 ### Perspective: Dynamical systems and systems biology
 
@@ -490,15 +490,14 @@ combinations.
 - *(proposed)* For a functional $a^\top b + c^\top \beta$ of a structured latent field and fixed
   effects, what conditions on the likelihood map, design, $\mathcal{N}(Q)$, and local curvature
   determine whether it is globally, locally, or weakly identified, or prior-determined? This
-  includes the case where the dimension of $b$ grows and the link is nonlinear. *(BIRS proposal
-  Challenge 1)*
+  includes the case where the dimension of $b$ grows and the link is nonlinear.
 
 ### Contributors
 
 | Name | Date | What |
 |---|---|---|
 | Emily Peterson | 2026-10-13 | Starter entry; needs review by members in each field |
-| Emily Peterson | 2026-10-13 | Hierarchical and spatial models perspective; from the LENS BIRS workshop proposal |
+| Emily Peterson | 2026-10-13 | Hierarchical and spatial models perspective |
 
 <!-- -----------------------------------------------------------------------------------------
      CONCEPT: Practical identifiability
@@ -716,7 +715,7 @@ reviewed by @richardson2014nonparametric.
 
 **References.** [@balke1997bounds; @richardson2014nonparametric]
 
-*Contributed by:* Emily Peterson (2026-10-13), from the LENS BIRS workshop proposal
+*Contributed by:* Emily Peterson (2026-10-13)
 
 ### Examples
 
@@ -750,14 +749,14 @@ reviewed by @richardson2014nonparametric.
   [@chernozhukov2018double; @chernozhukov2022automatic]. What is the set-identified analogue?
   It is unclear what should be orthogonalized: the individual moments, the criterion defining
   the set, its support function, or another directional representation. Small nuisance errors
-  can change a set's shape, topology, or active inequalities. *(BIRS proposal Challenge 2)*
+  can change a set's shape, topology, or active inequalities.
 
 ### Contributors
 
 | Name | Date | What |
 |---|---|---|
 | Emily Peterson | 2026-10-13 | Starter entry; needs review by members in each field |
-| Emily Peterson | 2026-10-13 | Set inference, causal bounds perspective, ML-nuisance question; from the LENS BIRS workshop proposal |
+| Emily Peterson | 2026-10-13 | Set inference, causal bounds perspective, ML-nuisance question |
 
 <!-- -----------------------------------------------------------------------------------------
      CONCEPT: Recoverability
@@ -838,8 +837,8 @@ probability once $m$ exceeds a constant multiple of $s \log n$.
 ### Proposed LENS usage
 
 *(proposed; not an established definition)* Identification is a property of a **model and
-target**. Practitioners also need to know what a **particular dataset** has learned. The LENS
-BIRS workshop proposal uses *recoverability* for this instance-specific question. As a starting
+target**. Practitioners also need to know what a **particular dataset** has learned. One proposed
+usage applies *recoverability* to this instance-specific question. As a starting
 point, it compares the prior and posterior marginal distributions of $\psi = g(\theta)$:
 
 $$
@@ -908,15 +907,14 @@ should be kept separate:
   structural identification, finite-sample information, prior contribution, and computational
   exploration? Candidate ingredients are likelihood curvature (analytic or via automatic
   differentiation), controlled prior perturbations, simulation, and algorithm-specific
-  convergence measures, with the workflow's scope and failure modes stated explicitly. *(BIRS
-  proposal Challenge 3)*
+  convergence measures, with the workflow's scope and failure modes stated explicitly.
 
 ### Contributors
 
 | Name | Date | What |
 |---|---|---|
 | Emily Peterson | 2026-10-13 | Starter entry; needs review by members in each field |
-| Emily Peterson | 2026-10-13 | Instance-specific recoverability, computation question; from the LENS BIRS workshop proposal |
+| Emily Peterson | 2026-10-13 | Instance-specific recoverability, computation question |
 
 <!-- =========================================================================================
      PART: CONNECTIONS ACROSS FIELDS
@@ -1031,12 +1029,12 @@ All are *(proposed)*.
 6. How do likelihood-based and objective-function approaches relate?
 7. How should we represent uncertainty when information varies across model components?
 
-## From the LENS BIRS workshop proposal
+## Core research problems
 
-Four challenges proposed for a 2028 BIRS workshop on partial identifiability and recoverability.
-All are *(proposed)*, and each is detailed in the concept named.
+Four problems that cut across the concepts above. All are *(proposed)*, and each is detailed
+in the concept named.
 
-| Challenge | Question | Concept |
+| Problem | Question | Concept |
 |---|---|---|
 | 1. Identified functionals in hierarchical models with structured latent fields | When is $a^\top b + c^\top \beta$ globally, locally, or weakly identified, or prior-determined, under a rank-deficient precision $Q$? | [Structural non-identifiability](#structural-non-identifiability) |
 | 2. Set identification with machine-learned nuisance functions | What is the orthogonality principle for an identified set with cross-fitted nuisance estimates? | [Partial identification](#partial-identification) |
