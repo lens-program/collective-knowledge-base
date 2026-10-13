@@ -1,0 +1,82 @@
+---
+title: "Practical identifiability"
+description: "Can the parameter be estimated with useful precision from the data actually available?"
+categories: [systems biology, econometrics, Bayesian inference]
+date-modified: last-modified
+---
+
+::: {.callout-note appearance="simple"}
+**Status:** starter entry, open for contributions. Not a LENS consensus.
+:::
+
+## Core question
+
+The model may be identifiable in principle. But with the finite, noisy data we actually have,
+can the parameter be estimated precisely enough to be useful? Practical non-identifiability is
+a property of the **model together with the data**. More or better data can fix it.
+
+## Definitions across fields
+
+### Systems biology and dynamical systems
+
+> A structurally identifiable parameter is practically non-identifiable if its likelihood-based
+> confidence interval extends to infinity in at least one direction, given the available data.
+> [@raue2009structural; @wieland2021structural]
+
+### Econometrics (weak identification)
+
+> A parameter is weakly identified when the data contain little information about it. In
+> instrumental-variable and GMM settings, this happens when the instruments are only weakly
+> related to the endogenous variables, and standard asymptotic approximations break down.
+> [@stock2002survey]
+
+### Bayesian inference
+
+There is no single definition. A common working notion: the posterior for the parameter is
+dominated by the prior, so the prior and posterior overlap heavily. In latent class models,
+@garrett2000latent use the prior–posterior overlap of each parameter as a diagnostic.
+
+## Formal statement
+
+*(no single formal definition)* Each field operationalises the idea differently:
+
+- profile-likelihood interval unbounded at a chosen confidence level [@raue2009structural];
+- weak-instrument asymptotics, where identification strength shrinks with sample size
+  [@stock2002survey];
+- prior–posterior overlap above a threshold [@garrett2000latent].
+
+## Examples
+
+- An ODE model where a rate constant can be estimated only if the system is sampled during a
+  fast transient that the design misses.
+- Hierarchical models with few groups: the between-group variance is identifiable but very
+  poorly estimated.
+- Instrumental-variable analysis with a weak first stage. [@stock2002survey]
+
+## Connections and distinctions
+
+- **vs. [structural non-identifiability](structural-non-identifiability.qmd):** see that page.
+  The profile likelihood is flat in the structural case, and finite but wide or one-sided in
+  the practical case.
+- **[Recoverability](recoverability.qmd):** *(proposed)* practical identifiability is
+  identifiability judged at the precision the data can deliver; recoverability asks the same
+  question about functionals.
+
+## Key references
+
+- @raue2009structural: the profile-likelihood definition.
+- @wieland2021structural: review of the structural vs. practical distinction.
+- @stock2002survey: weak identification in econometrics.
+
+## Open questions
+
+- *(open)* Is there a definition of practical identifiability that is not tied to a particular
+  inferential framework (likelihood, GMM, Bayesian)?
+- *(open)* How should practical identifiability be assessed for spatial and hierarchical models,
+  where information differs by component and location?
+
+## Contributors
+
+| Name | Date | What |
+|---|---|---|
+| Emily Peterson | 2026-10-13 | Starter entry; needs review by members in each field |

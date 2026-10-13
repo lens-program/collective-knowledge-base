@@ -1,0 +1,36 @@
+name: Propose a term
+description: Suggest a new concept, or a definition from your field for an existing one
+title: "[term] "
+labels: [term]
+body:
+  - type: input
+    id: term
+    attributes:
+      label: Term or concept
+      placeholder: e.g. generic identifiability
+    validations:
+      required: true
+  - type: input
+    id: field
+    attributes:
+      label: Field or community that uses it
+      placeholder: e.g. algebraic statistics
+    validations:
+      required: true
+  - type: textarea
+    id: definition
+    attributes:
+      label: Definition as used in that field
+    validations:
+      required: true
+  - type: textarea
+    id: refs
+    attributes:
+      label: References
+      description: Author, year, title; a DOI or link if you have one. BibTeX is welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: relation
+    attributes:
+      label: How it relates to existing concepts (optional)

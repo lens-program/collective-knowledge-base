@@ -1,0 +1,87 @@
+---
+title: "Structural non-identifiability"
+description: "Is the parameter undetermined by the model itself, no matter how much or how good the data?"
+categories: [systems biology, statistical ecology, statistics]
+date-modified: last-modified
+---
+
+::: {.callout-note appearance="simple"}
+**Status:** starter entry, open for contributions. Not a LENS consensus.
+:::
+
+## Core question
+
+Does the model structure itself prevent the parameter from being determined, even with perfect,
+noise-free, unlimited data? Collecting more of the same data cannot fix structural
+non-identifiability. Only changing the model, the observations, or the information supplied
+(constraints, priors, external data) can.
+
+## Definitions across fields
+
+### Systems biology and dynamical systems
+
+> A parameter is structurally non-identifiable when it cannot be determined uniquely even from
+> ideal, noise-free model output. This typically happens because of a functional relationship
+> among parameters (a manifold of parameter values that produce the same output).
+> [@bellman1970structural; @raue2009structural]
+
+In profile-likelihood terms, the profile likelihood of a structurally non-identifiable
+parameter is **flat**. [@raue2009structural]
+
+### Statistical ecology (parameter redundancy)
+
+> A model is parameter-redundant if it can be rewritten in terms of fewer parameters. A
+> parameter-redundant model is not identifiable. [@catchpole1997detecting; @cole2020parameter]
+
+Parameter redundancy is checked symbolically, through the rank of a derivative matrix of an
+exhaustive summary of the model. This gives the number of estimable combinations, and which
+ones they are.
+
+### Statistics
+
+> The model $\{P_\theta\}$ fails to be identifiable: distinct $\theta$ give the same $P_\theta$.
+> See [identifiability](identifiability.qmd). [@rothenberg1971identification]
+
+## Formal statement
+
+There exist $\theta_1 \neq \theta_2$ with $P_{\theta_1} = P_{\theta_2}$. Typically the set
+$\{\theta : P_\theta = P_{\theta_0}\}$ is a manifold of positive dimension. Its dimension is the
+number of parameters minus the number of estimable combinations, i.e. the deficiency in
+@catchpole1997detecting.
+
+## Examples
+
+- $Y \sim N(a + b, 1)$: only $a + b$ is estimable; the deficiency is 1.
+- Grouped or normalised likelihoods: if a likelihood depends on predictors only through
+  within-group shares (e.g. a multinomial allocation within each group), any term that is
+  constant within a group cancels and is structurally non-identifiable. An external anchor that
+  varies within groups is needed to identify it.
+- Capture–recapture models where survival and capture probability for the final occasion
+  appear only as a product. [@catchpole1997detecting]
+
+## Connections and distinctions
+
+- **vs. [practical identifiability](practical-identifiability.qmd):** structural problems come
+  from the model and persist with infinite data; practical problems come from limited, noisy
+  data.
+- **[Partial identification](partial-identification.qmd):** the non-identified direction may
+  still be bounded, giving an identified set rather than a point.
+- **[Recoverability](recoverability.qmd):** *(proposed)* the estimable combinations are
+  exactly the functionals that remain recoverable.
+
+## Key references
+
+- @bellman1970structural: origin of "structural identifiability".
+- @raue2009structural: the profile likelihood distinguishes structural from practical problems.
+- @catchpole1997detecting and @cole2020parameter: parameter redundancy and symbolic detection.
+
+## Open questions
+
+- *(open)* Symbolic rank methods scale poorly. What is the right check for high-dimensional
+  hierarchical or spatial models with thousands of latent effects?
+
+## Contributors
+
+| Name | Date | What |
+|---|---|---|
+| Emily Peterson | 2026-10-13 | Starter entry; needs review by members in each field |

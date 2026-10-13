@@ -1,0 +1,43 @@
+---
+title: "LENS Knowledge Base"
+subtitle: "Identifiability, recoverability, and related concepts across statistical disciplines"
+toc: false
+---
+
+The LENS Knowledge Base is a **living reference** maintained by members of the
+[LENS Program](https://lens-program.github.io/lens-program/). It collects how identifiability,
+recoverability, and related ideas are defined, formalised, and used in different fields:
+statistics, econometrics, causal inference, systems biology, inverse problems, and others.
+
+Its purpose is not just to compile what is known. By putting the different vocabularies next to
+each other, we want to see where fields agree, where the same word means different things, and
+**what nobody yet knows**. Those gaps become seminar topics, and eventually papers.
+
+## What is here
+
+- **[Concepts](concepts/index.qmd).** One page per concept. Each page holds definitions from
+  several fields side by side, a formal statement, references, connections to other concepts,
+  and open questions.
+- **[Connections](connections.qmd).** How the concepts relate, and which terms mean roughly the
+  same thing in different fields.
+- **[Seminars](seminars/index.qmd).** Notes from LENS talks, each linked to the concepts it
+  touched.
+- **[Open problems](open-problems.qmd).** Questions raised in seminars and entries that we
+  cannot yet answer.
+- **[References](references.qmd).** The shared bibliography behind every citation on the site.
+
+## Ground rules
+
+1. **Several definitions can coexist.** A definition from another field is *added* next to
+   existing ones, never written over them.
+2. **Formal definitions carry citations.**
+3. **Contributions are attributed** on each page.
+4. **Established results are kept apart from interpretation.** Proposed connections and open
+   questions are labelled as such.
+5. **Nothing here is a LENS consensus** unless a page says the group discussed it and agreed.
+
+## Contribute
+
+Anyone in LENS can add a definition, a reference, an example, or a question. See
+[How to contribute](contributing.qmd). Small suggestions can go in a
+[GitHub issue](https://github.com/lens-program/knowledge-base/issues/new/choose).

@@ -1,0 +1,23 @@
+name: Add a reference
+description: Suggest a paper or book for the shared bibliography
+title: "[ref] "
+labels: [reference]
+body:
+  - type: textarea
+    id: citation
+    attributes:
+      label: Citation
+      description: BibTeX preferred; author/year/title/venue is fine.
+    validations:
+      required: true
+  - type: input
+    id: concepts
+    attributes:
+      label: Which concept page(s) it belongs on
+      placeholder: e.g. partial identification, recoverability
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it matters (one or two lines)
+    validations:
+      required: true

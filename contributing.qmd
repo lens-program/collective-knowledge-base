@@ -1,0 +1,8 @@
+---
+title: "How to contribute"
+---
+
+Anyone in LENS can contribute: a definition from your field, a reference, an example, a
+connection between concepts, or a question nobody can answer yet.
+
+{{< include CONTRIBUTING.md >}}

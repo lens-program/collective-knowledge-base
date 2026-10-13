@@ -1,0 +1,61 @@
+---
+title: "Concept name"
+description: "One-sentence core question this concept answers."
+categories: [field-1, field-2]   # fields with a definition on this page
+date-modified: last-modified
+---
+
+<!--
+HOW TO USE THIS TEMPLATE
+1. Copy this file to concepts/<concept-name>.qmd (lowercase, hyphens). Files starting with
+   "_" are not rendered, so this template never appears on the site.
+2. Add the new page to the sidebar in _quarto.yml.
+3. Fill in what you know and leave the other sections short. Others will add to them.
+4. Cite with @key, where key is an entry in references.bib.
+-->
+
+::: {.callout-note appearance="simple"}
+**Status:** starter entry, open for contributions. Not a LENS consensus.
+:::
+
+## Core question
+
+What is the question this concept answers, in one or two plain sentences?
+
+## Definitions across fields
+
+<!-- One subsection per field. ADD a subsection for a new field. Do not rewrite another
+     field's definition; if you disagree with it, add a note under "Connections and
+     distinctions" or open an issue. -->
+
+### Field name
+
+> The definition, as used in this field. [@key]
+
+*Contributed by:* Name (YYYY-MM-DD)
+
+## Formal statement
+
+The definition in notation, with the assumptions it needs.
+
+## Examples
+
+Short worked examples, ideally from more than one application area.
+
+## Connections and distinctions
+
+- **Related concept:** how it relates. *(Mark proposed connections as "proposed".)*
+
+## Key references
+
+- @key: one line on why it matters for this concept.
+
+## Open questions
+
+- *(open)* A question we cannot yet answer. Name who raised it, and the seminar if any.
+
+## Contributors
+
+| Name | Date | What |
+|---|---|---|
+| | | |

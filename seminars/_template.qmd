@@ -1,0 +1,28 @@
+---
+title: "Talk title"
+author: "Speaker name (Institution)"
+date: 2026-01-01
+description: "One-sentence summary of the talk."
+categories: [identifiability, recoverability]   # concept tags (use concept page names)
+---
+
+<!-- Copy to seminars/YYYY-MM-DD-speaker.qmd. Files starting with "_" are not rendered. -->
+
+**Group:** LENS Monthly / PRISM  ·  **Slides:** link, if shared
+
+## Research problem and motivating application
+
+## Where identifiability or recoverability comes up
+
+## Terminology and frameworks used
+
+Note any terms used differently from the [concept pages](../concepts/index.qmd), and add them
+there.
+
+## Connections to other LENS areas
+
+## Open questions raised
+
+Copy these to [Open problems](../open-problems.qmd) as well.
+
+## Notes taken by

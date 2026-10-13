@@ -1,0 +1,94 @@
+---
+title: "Recoverability"
+description: "Which quantities can still be learned from the data, even when the full model is not identifiable?"
+categories: [causal inference, missing data, inverse problems, Bayesian inference]
+date-modified: last-modified
+---
+
+::: {.callout-note appearance="simple"}
+**Status:** starter entry, open for contributions. Not a LENS consensus. "Recoverability" is
+used in several distinct senses; this page records them side by side.
+:::
+
+## Core question
+
+Given the data and the model we have, which target quantities can be learned (recovered), even
+when the model as a whole is not identifiable?
+
+## Definitions across fields
+
+### Missing data (graphical models)
+
+> A target quantity (e.g. a joint distribution or a causal effect) is recoverable if it can be
+> computed consistently from the distribution of the observed, partially missing data, given
+> the assumptions encoded in a missingness graph (m-graph). [@mohan2013graphical]
+
+### Causal inference: selection bias and data fusion
+
+> A query is recoverable from selection-biased data if it can be computed from the distribution
+> of the selected sample, possibly together with external unbiased data, under the assumptions
+> in the causal graph. [@bareinboim2014recovering; @bareinboim2016causal]
+
+### Inverse problems and compressed sensing
+
+> "Recovery" of a signal refers to reconstructing it exactly or stably from incomplete
+> measurements under structural conditions such as sparsity.
+> [@candes2006robust]
+
+### LENS working usage
+
+> *(interpretation, not settled)* Recoverability asks which **functionals** of a
+> non-identifiable or partially identified model can be learned. These may be identified
+> functionals, functionals with informative bounds, or functionals whose posterior
+> concentrates even though the full parameter's does not.
+
+## Formal statement
+
+*(no single formal definition; candidates below)*
+
+- **Identified functional:** $\psi$ is recoverable if $P_{\theta_1} = P_{\theta_2} \Rightarrow
+  \psi(\theta_1) = \psi(\theta_2)$. See [identifiability](identifiability.qmd).
+- **Graphical recoverability:** $Q$ is recoverable if $Q(M_1) = Q(M_2)$ for every pair of models
+  $M_1, M_2$ compatible with the graph that agree on the observed-data distribution.
+  [@mohan2013graphical]
+- **Bayesian learning** *(proposed)*: the posterior for $\psi$ differs from its prior, or
+  concentrates, as $n \to \infty$. [@gustafson2015bayesian]
+
+## Examples
+
+- $Y \sim N(a + b, 1)$: $a + b$ is recoverable, $a$ is not.
+- Recovering a population distribution from a selected sample when selection depends only on
+  variables that are measured. [@bareinboim2014recovering]
+- Exact recovery of a sparse signal from far fewer Fourier coefficients than the signal length.
+  [@candes2006robust]
+
+## Connections and distinctions
+
+- **vs. [identifiability](identifiability.qmd):** in causal inference and missing-data work,
+  "recoverable" and "identifiable" are close to synonyms; the difference is mainly the setting
+  (missingness or selection). *(proposed; needs discussion)*
+- **[Partial identification](partial-identification.qmd):** a functional constant over the
+  identified set is recoverable. Others are recoverable only up to bounds.
+- **[Practical identifiability](practical-identifiability.qmd):** a recoverable functional can
+  still be estimated imprecisely.
+
+## Key references
+
+- @mohan2013graphical: recoverability with missing data.
+- @bareinboim2014recovering and @bareinboim2016causal: recoverability from selection bias, and
+  data fusion.
+- @candes2006robust: "recovery" in compressed sensing.
+- @gustafson2015bayesian: what is learnable in partially identified Bayesian models.
+
+## Open questions
+
+- *(open)* Should LENS adopt one definition of recoverability, or keep several labelled
+  definitions (graphical, Bayesian, bound-based)?
+- *(open)* How can recoverability be diagnosed in practice for complex hierarchical, spatial,
+  or measurement-error models?
+
+## Contributors
+
+| Name | Date | What |
+|---|---|---|
+| Emily Peterson | 2026-10-13 | Starter entry; needs review by members in each field |

@@ -1,0 +1,77 @@
+---
+title: "Partial identification"
+description: "When the data cannot pin down a quantity, how far can they narrow it down?"
+categories: [econometrics, Bayesian inference, causal inference]
+date-modified: last-modified
+---
+
+::: {.callout-note appearance="simple"}
+**Status:** starter entry, open for contributions. Not a LENS consensus.
+:::
+
+## Core question
+
+Point identification fails. Can the observable distribution, together with credible
+assumptions, still restrict the quantity to a set, and how small is that set?
+
+## Definitions across fields
+
+### Econometrics
+
+> A parameter is partially identified when the observable distribution, combined with the
+> maintained assumptions, restricts it to a set (the *identified set*) that is larger than a
+> point but smaller than the whole parameter space.
+> [@manski2003partial; @tamer2010partial]
+
+The emphasis is on weak, credible assumptions that yield bounds, rather than strong
+assumptions that yield a point.
+
+### Bayesian inference
+
+> In a partially identified model, the posterior does not concentrate on a point as $n \to
+> \infty$. It converges to a limiting distribution over the identified set, and the shape of
+> that distribution is set by the prior. [@gustafson2015bayesian]
+
+@moon2012bayesian show that Bayesian credible sets and frequentist confidence sets for the
+identified set can disagree even asymptotically.
+
+## Formal statement
+
+Given the observed-data distribution $P_0$ and model $\{P_\theta\}$, the identified set is
+$\Theta_I = \{\theta \in \Theta : P_\theta = P_0\}$. For a functional, it is $\Psi_I =
+\{\psi(\theta) : \theta \in \Theta_I\}$. Point identification is the special case where
+$\Psi_I$ is a single point.
+
+## Examples
+
+- Bounds on a mean with missing outcomes and no assumption about the missingness mechanism
+  (worst-case bounds). [@manski2003partial]
+- Misclassification with sensitivity and specificity known only to lie in ranges.
+  [@gustafson2005model]
+
+## Connections and distinctions
+
+- **[Identifiability](identifiability.qmd):** point identification is the degenerate case.
+- **[Structural non-identifiability](structural-non-identifiability.qmd):** structural
+  non-identifiability produces an identified set; partial identification studies its size and
+  shape.
+- **[Recoverability](recoverability.qmd):** *(proposed)* a functional that is constant over
+  $\Theta_I$ is fully recoverable even when $\theta$ is only partially identified.
+
+## Key references
+
+- @manski2003partial: foundational monograph.
+- @tamer2010partial: review.
+- @gustafson2015bayesian: the Bayesian perspective.
+- @moon2012bayesian: where Bayesian and frequentist inference diverge.
+
+## Open questions
+
+- *(open)* How should we report uncertainty when part of it can be reduced with more data and
+  part of it never can?
+
+## Contributors
+
+| Name | Date | What |
+|---|---|---|
+| Emily Peterson | 2026-10-13 | Starter entry; needs review by members in each field |

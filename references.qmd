@@ -1,0 +1,13 @@
+---
+title: "References"
+nocite: |
+  @*
+---
+
+The shared bibliography lives in
+[`references.bib`](https://github.com/lens-program/knowledge-base/blob/main/references.bib).
+Every entry is listed below, whether or not a page cites it yet. To add a reference, see
+[How to contribute](contributing.qmd#adding-a-reference).
+
+::: {#refs}
+:::
