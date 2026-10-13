@@ -14,17 +14,31 @@ recoverability, and related ideas are defined and used in different fields, side
 can see where fields agree, where the same word means different things, and what is still
 unknown.
 
-**Adding to it.** Use **Edit this page** (right margin) to edit this document directly on
-GitHub. Add your field's definition *next to* the existing ones rather than rewriting them,
-cite it (`[@key]`, with the entry added to `references.bib`), and add your name to the
-section's contributors table. Mark proposed connections *(proposed)* and unresolved questions
-*(open)*. Nothing here is a LENS consensus unless the text says the group agreed on it.
+**Adding to it.** Anyone in LENS can add a definition, example, reference, or question. Add your
+field's definition *next to* the existing ones rather than rewriting them, and add your name to
+the contributors table. Step-by-step instructions for editing this document and adding
+references are in the
+[repository README](https://github.com/lens-program/collective-knowledge-base#how-to-contribute).
+Nothing here is a LENS consensus unless the text says the group agreed on it.
+
+<!-- =========================================================================================
+     PART: CONCEPTS
+     ==================================================================================== -->
+
+* * *
 
 # Concepts {#concepts}
 
 Each concept follows the same outline: core question, definitions across fields, formal
 statement, examples, connections and distinctions, open questions, contributors. To add a
 concept, copy the outline from any existing one.
+
+<!-- -----------------------------------------------------------------------------------------
+     CONCEPT: Identifiability
+     (to add a new concept, copy everything from one CONCEPT banner to the next)
+     ------------------------------------------------------------------------------------ -->
+
+* * *
 
 ## Identifiability {#identifiability}
 
@@ -126,6 +140,13 @@ Let $\mathcal{P} = \{P_\theta : \theta \in \Theta\}$.
 |---|---|---|
 | Emily Peterson | 2026-10-13 | Starter entry; needs review by members in each field |
 
+<!-- -----------------------------------------------------------------------------------------
+     CONCEPT: Structural non-identifiability
+     (to add a new concept, copy everything from one CONCEPT banner to the next)
+     ------------------------------------------------------------------------------------ -->
+
+* * *
+
 ## Structural non-identifiability {#structural-non-identifiability}
 
 ### Core question
@@ -200,6 +221,13 @@ number of parameters minus the number of estimable combinations, i.e. the defici
 |---|---|---|
 | Emily Peterson | 2026-10-13 | Starter entry; needs review by members in each field |
 
+<!-- -----------------------------------------------------------------------------------------
+     CONCEPT: Practical identifiability
+     (to add a new concept, copy everything from one CONCEPT banner to the next)
+     ------------------------------------------------------------------------------------ -->
+
+* * *
+
 ## Practical identifiability {#practical-identifiability}
 
 ### Core question
@@ -269,6 +297,13 @@ dominated by the prior, so the prior and posterior overlap heavily. In latent cl
 |---|---|---|
 | Emily Peterson | 2026-10-13 | Starter entry; needs review by members in each field |
 
+<!-- -----------------------------------------------------------------------------------------
+     CONCEPT: Partial identification
+     (to add a new concept, copy everything from one CONCEPT banner to the next)
+     ------------------------------------------------------------------------------------ -->
+
+* * *
+
 ## Partial identification {#partial-identification}
 
 ### Core question
@@ -331,6 +366,13 @@ $\Psi_I$ is a single point.
 | Name | Date | What |
 |---|---|---|
 | Emily Peterson | 2026-10-13 | Starter entry; needs review by members in each field |
+
+<!-- -----------------------------------------------------------------------------------------
+     CONCEPT: Recoverability
+     (to add a new concept, copy everything from one CONCEPT banner to the next)
+     ------------------------------------------------------------------------------------ -->
+
+* * *
 
 ## Recoverability {#recoverability}
 
@@ -410,6 +452,12 @@ when the model as a whole is not identifiable?
 |---|---|---|
 | Emily Peterson | 2026-10-13 | Starter entry; needs review by members in each field |
 
+<!-- =========================================================================================
+     PART: CONNECTIONS ACROSS FIELDS
+     ==================================================================================== -->
+
+* * *
+
 # Connections across fields {#connections}
 
 This section maps how the [concepts](#concepts) relate, and where different fields use
@@ -456,6 +504,12 @@ Empty cells are invitations: if your field has a term, add it.
   or economic model behind the reduced form" in econometrics.
   [@bellman1970structural; @koopmans1949identification]
 
+<!-- =========================================================================================
+     PART: OPEN QUESTIONS
+     ==================================================================================== -->
+
+* * *
+
 # Open questions {#open-questions-all}
 
 Questions LENS cannot yet answer, collected from talks, the concepts above, and discussion. Each
@@ -492,6 +546,12 @@ These are the questions on the [LENS Program page](https://lens-program.github.i
 ## Raised in talks
 
 *(none yet)*
+
+<!-- =========================================================================================
+     PART: REFERENCES
+     ==================================================================================== -->
+
+* * *
 
 # References {#references}
 
