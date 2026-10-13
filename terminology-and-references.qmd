@@ -55,6 +55,22 @@ the [repository README](https://github.com/lens-program/collective-knowledge-bas
 | [Partial identification](#partial-identification) | When point identification fails, how far do the data narrow the target down? | Econometrics, Bayesian inference, causal inference |
 | [Recoverability](#recoverability) | Which targets can still be learned when the full model is not identifiable? | Missing data, causal inference, inverse problems; proposed LENS usage (instance-specific) |
 
+## Guiding questions {#guiding-questions}
+
+The questions LENS is organized around, from the
+[LENS Program page](https://lens-program.github.io/lens-program/). Open questions about a
+specific concept are listed at the end of that concept.
+
+1. What are the relationships among identifiability, partial identifiability, practical
+   identifiability, and recoverability?
+2. Which parameters or functionals remain recoverable when a full model is nonidentifiable?
+3. How can recoverability be characterized or diagnosed?
+4. How do priors, constraints, measurement error, and external information affect what can be
+   learned?
+5. How do spatial and hierarchical structures influence identifiability?
+6. How do likelihood-based and objective-function approaches relate?
+7. How should we represent uncertainty when information varies across model components?
+
 <!-- =========================================================================================
      PART: TERMINOLOGY AND MATHEMATICAL DEFINITIONS
      ====================================================================================
@@ -950,47 +966,9 @@ These distinctions are easily blurred, and each changes what an analyst may vali
 
 Empty cells are invitations: if your field has a term, add it.
 
-<!-- =========================================================================================
-     PART: OPEN QUESTIONS
-     ==================================================================================== -->
+## Candidate benchmark models {#benchmarks}
 
-* * *
-
-# Open questions {#open-questions-all}
-
-Questions LENS cannot yet answer, collected from the concepts above and from discussion. Each
-item carries a status label ([see Purpose and scope](#purpose)) and says where it was raised.
-When a question is resolved, or turns into a project, update its label and note the outcome
-here rather than deleting it.
-
-## From the LENS charter
-
-These are the questions on the [LENS Program page](https://lens-program.github.io/lens-program/).
-All are *(proposed)*.
-
-1. What are the relationships among identifiability, partial identifiability, practical
-   identifiability, and recoverability?
-2. Which parameters or functionals remain recoverable when a full model is nonidentifiable?
-3. How can recoverability be characterized or diagnosed?
-4. How do priors, constraints, measurement error, and external information affect what can be
-   learned?
-5. How do spatial and hierarchical structures influence identifiability?
-6. How do likelihood-based and objective-function approaches relate?
-7. How should we represent uncertainty when information varies across model components?
-
-## Core research problems
-
-Four problems that cut across the concepts above. All are *(proposed)*, and each is detailed
-in the concept named.
-
-| Problem | Question | Concept |
-|---|---|---|
-| 1. Identified functionals in hierarchical models with structured latent fields | When is $a^\top b + c^\top \beta$ globally, locally, or weakly identified, or prior-determined, under a rank-deficient precision $Q$? | [Structural non-identifiability](#structural-non-identifiability) |
-| 2. Set identification with machine-learned nuisance functions | What is the orthogonality principle for an identified set with cross-fitted nuisance estimates? | [Partial identification](#partial-identification) |
-| 3. Instance-specific recoverability, separated from computation | How can we measure what a dataset learned about $g(\theta)$, separating likelihood, prior, and sampler? | [Recoverability](#recoverability) |
-| 4. Fibre geometry and Bayesian prior persistence | When do $\ker J_F(\theta_0)$ and the prior-persistent directions coincide? | [Identifiability](#identifiability) |
-
-**Candidate benchmark models.** Each benchmark specifies the observable model, structural
+Shared examples for comparing frameworks on the same mathematical object. Each benchmark specifies the observable model, structural
 parameter, scientific target, observational equivalence class or identified set, and the
 inferential or computational question:
 
@@ -998,19 +976,6 @@ inferential or computational question:
 - a misclassified binary outcome model;
 - a finite latent-class model;
 - a causal model under relaxed identifying assumptions.
-
-## Raised in the concepts above
-
-| Question | Status | Raised in |
-|---|---|---|
-| Is there one definition that covers parameters, estimands, and states? | *(proposed)* | [Identifiability](#identifiability) |
-| How should generic-but-not-everywhere identifiability be reported? | *(proposed)* | [Identifiability](#identifiability) |
-| Checking structural identifiability for high-dimensional hierarchical and spatial models | *(proposed)* | [Structural non-identifiability](#structural-non-identifiability) |
-| A definition of practical identifiability that does not depend on the inferential framework | *(proposed)* | [Practical identifiability](#practical-identifiability) |
-| Reporting uncertainty that is partly reducible and partly irreducible | *(proposed)* | [Partial identification](#partial-identification) |
-| One definition of recoverability, or several labelled ones? | *(proposed)* | [Recoverability](#recoverability) |
-| When does posterior concentration imply point recoverability, and vice versa? | *(proposed)* | [Recoverability](#recoverability) |
-| When do the fibre tangent space and Bayesian prior-persistent directions coincide? | *(proposed)* | [Identifiability](#identifiability) |
 
 <!-- =========================================================================================
      PART: REFERENCES

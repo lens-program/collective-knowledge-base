@@ -26,7 +26,7 @@ Everything can be done in the browser. You do not need to install anything or kn
    **pencil icon** (Edit this file), top right. Or use
    [this direct edit link](https://github.com/lens-program/collective-knowledge-base/edit/main/terminology-and-references.qmd).
 2. Find the section you want. Each part and each concept starts with a banner like
-   `PART: OPEN QUESTIONS` or `CONCEPT: Identifiability`; use **Ctrl+F / Cmd+F** to jump to one.
+   `PART: CONNECTIONS ACROSS FIELDS` or `CONCEPT: Identifiability`; use **Ctrl+F / Cmd+F** to jump to one.
 3. Make your addition:
    - **A definition from your field:** add a new perspective block after the concept's last
      `### Perspective:` block. Copy the template in the comment under the
@@ -35,7 +35,7 @@ Everything can be done in the browser. You do not need to install anything or kn
      it needs), and **References**. Do not rewrite another field's
      perspective. If you disagree with one, say so under `### Connections and distinctions`.
    - **An example or open question:** add a bullet under that concept's `### Examples` or
-     `### Open questions`. Label it *(proposed)*, *(under discussion)*, or *(resolved)*, and add it to the table in `PART: OPEN QUESTIONS`.
+     `### Open questions`. Label it *(proposed)*, *(under discussion)*, or *(resolved)*.
    - **A new concept:** copy one whole concept, from its `CONCEPT:` banner down to the next
      banner, paste it after the last concept, and replace the text. Add a row for it to the
      *Terminology at a glance* table at the top. Give the heading a short
