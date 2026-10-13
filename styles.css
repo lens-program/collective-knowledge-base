@@ -1,0 +1,27 @@
+/* Concept headings (2.1, 2.2, ...): solid band */
+h2.anchored {
+  background: #1f4e79;
+  color: #ffffff;
+  padding: 0.45em 0.7em;
+  border-radius: 4px;
+  margin-top: 2.2em;
+}
+h2.anchored a.anchorjs-link { color: #ffffff; }
+
+/* Subsections (2.1.A Core question, 2.1.B Perspective: ..., ...): light band */
+h3.anchored {
+  background: #e3edf8;
+  border-left: 6px solid #1f4e79;
+  padding: 0.35em 0.7em;
+  border-radius: 3px;
+  margin-top: 2em;
+}
+
+/* Field headings inside a perspective, if any */
+h4.anchored {
+  border-bottom: 1px solid #c9d8ea;
+  padding-bottom: 0.15em;
+}
+
+h2.anchored .header-section-number { color: #cfe0f3; }
+h3.anchored .header-section-number { color: #1f4e79; }

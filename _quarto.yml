@@ -23,6 +23,8 @@ link-citations: true
 format:
   html:
     theme: cosmo
+    css: styles.css
+    include-after-body: subsection-letters.html
     toc: true
     toc-depth: 3
     toc-expand: 1

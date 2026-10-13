@@ -30,9 +30,9 @@ Everything can be done in the browser. You do not need to install anything or kn
 3. Make your addition:
    - **A definition from your field:** add a new perspective block after the concept's last
      `### Perspective:` block. Copy the template in the comment under the
-     `PART: TERMINOLOGY AND MATHEMATICAL DEFINITIONS` banner. Each perspective has four parts:
+     `PART: TERMINOLOGY AND MATHEMATICAL DEFINITIONS` banner. Each perspective has three parts:
      **Definition** (in words), **Mathematical formulation** (in notation, with the assumptions
-     it needs), **References**, and *Contributed by*. Do not rewrite another field's
+     it needs), and **References**. Do not rewrite another field's
      perspective. If you disagree with one, say so under `### Connections and distinctions`.
    - **An example or open question:** add a bullet under that concept's `### Examples` or
      `### Open questions`. Label it *(proposed)*, *(under discussion)*, or *(resolved)*, and add it to the table in `PART: OPEN QUESTIONS`.

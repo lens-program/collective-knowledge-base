@@ -7,7 +7,7 @@ aliases:
 nocite: |
   @*
 number-sections: true
-number-depth: 2
+number-depth: 3
 ---
 
 <!-- =========================================================================================
@@ -79,7 +79,6 @@ the [repository README](https://github.com/lens-program/collective-knowledge-bas
 
        **References.** [@key]
 
-       *Contributed by:* Name (YYYY-MM-DD)
 -->
 
 * * *
@@ -145,8 +144,6 @@ single point.
 **References.** [@rothenberg1971identification; @paulino1994identifiability;
 @allman2009identifiability]
 
-*Contributed by:* Emily Peterson (2026-10-13)
-
 ### Perspective: Econometrics
 
 **Definition.** The structural parameters of an economic model are identified if they can be
@@ -170,8 +167,6 @@ equivalent structures*: structures that generate the same distribution of observ
 **References.** [@koopmans1949identification; @koopmans1950identification;
 @manski1995identification; @lewbel2019identification]
 
-*Contributed by:* Emily Peterson (2026-10-13)
-
 ### Perspective: Causal inference
 
 **Definition.** A causal estimand is identifiable if it is uniquely determined by the
@@ -194,8 +189,6 @@ observed distribution under the graph. When point identification fails, bounds a
 analysis take over; see [partial identification](#partial-identification).
 
 **References.** [@pearl2009causality; @shpitser2006identification]
-
-*Contributed by:* Emily Peterson (2026-10-13)
 
 ### Perspective: Algebraic statistics and latent-structure models
 
@@ -236,8 +229,6 @@ identifiability of many latent-structure models.
 **References.** [@kruskal1977three; @drton2009lectures; @allman2009identifiability;
 @watanabe2009algebraic]
 
-*Contributed by:* Emily Peterson (2026-10-13)
-
 ### Perspective: Dynamical systems and systems biology
 
 **Definition.** A model is *structurally* identifiable if its parameters are uniquely determined
@@ -261,8 +252,6 @@ $$
 It is locally structurally identifiable if this holds within a neighbourhood of each $\theta$.
 
 **References.** [@bellman1970structural; @wieland2021structural]
-
-*Contributed by:* Emily Peterson (2026-10-13)
 
 ### Perspective: Bayesian inference
 
@@ -288,8 +277,6 @@ conditional is proper and a Gibbs sampler appears to run. [@gelfand1999identifia
 
 **References.** [@poirier1998revising; @gustafson2009limits; @gustafson2015bayesian;
 @gelfand1999identifiability]
-
-*Contributed by:* Emily Peterson (2026-10-13)
 
 ### Examples
 
@@ -380,8 +367,6 @@ $E(\theta_0)$ need not be bounded.
 
 **References.** [@rothenberg1971identification]
 
-*Contributed by:* Emily Peterson (2026-10-13)
-
 ### Perspective: Hierarchical and spatial models (structured latent fields)
 
 **Definition.** Intrinsic priors on latent fields are invariant along some directions. Examples
@@ -411,8 +396,6 @@ fixed effect.
 **References.** [@besag1991bayesian; @rue2005gaussian; @reich2006effects;
 @hodges2010adding; @paciorek2010importance; @simpson2017penalising]
 
-*Contributed by:* Emily Peterson (2026-10-13)
-
 ### Perspective: Dynamical systems and systems biology
 
 **Definition.** A parameter is structurally non-identifiable when ideal, noise-free model output
@@ -436,8 +419,6 @@ flat profile.
 
 **References.** [@bellman1970structural; @raue2009structural]
 
-*Contributed by:* Emily Peterson (2026-10-13)
-
 ### Perspective: Statistical ecology (parameter redundancy)
 
 **Definition.** A model is parameter-redundant if it can be rewritten in terms of fewer
@@ -456,8 +437,6 @@ parameters that cannot be estimated, and $r$ is the number of estimable paramete
 combinations.
 
 **References.** [@catchpole1997detecting; @cole2020parameter]
-
-*Contributed by:* Emily Peterson (2026-10-13)
 
 ### Examples
 
@@ -535,8 +514,6 @@ $\theta_i$ is practically non-identifiable if this region is unbounded above or 
 
 **References.** [@raue2009structural; @wieland2021structural]
 
-*Contributed by:* Emily Peterson (2026-10-13)
-
 ### Perspective: Econometrics (weak identification)
 
 **Definition.** A parameter is weakly identified when the data carry little information about
@@ -555,8 +532,6 @@ two-stage least squares estimator is not consistent and its usual normal approxi
 
 **References.** [@staiger1997instrumental; @stock2002survey]
 
-*Contributed by:* Emily Peterson (2026-10-13)
-
 ### Perspective: Bayesian inference
 
 **Definition.** One working criterion is that a parameter is weakly identified by the data when
@@ -572,8 +547,6 @@ and large values flag parameters about which the data say little. @garrett2000la
 diagnostic in latent class models.
 
 **References.** [@garrett2000latent]
-
-*Contributed by:* Emily Peterson (2026-10-13)
 
 ### Examples
 
@@ -661,8 +634,6 @@ identified sets described by their support functions [@molchanov2018random].
 **References.** [@manski1995identification; @manski2003partial; @imbens2004confidence;
 @chernozhukov2007estimation; @andrews2010inference; @tamer2010partial; @molchanov2018random]
 
-*Contributed by:* Emily Peterson (2026-10-13)
-
 ### Perspective: Bayesian inference
 
 **Definition.** In a partially identified model, the posterior does not concentrate on a point
@@ -692,8 +663,6 @@ available in closed form for the high-dimensional hierarchical models used in pr
 **References.** [@poirier1998revising; @gustafson2009limits; @gustafson2015bayesian;
 @moon2012bayesian; @kline2016bayesian]
 
-*Contributed by:* Emily Peterson (2026-10-13)
-
 ### Perspective: Causal inference (bounds and sensitivity analysis)
 
 **Definition.** When a causal effect is not point identified, bounds describe the range of
@@ -714,8 +683,6 @@ program. [@balke1997bounds] Nonparametric bounds and sensitivity analyses for ot
 reviewed by @richardson2014nonparametric.
 
 **References.** [@balke1997bounds; @richardson2014nonparametric]
-
-*Contributed by:* Emily Peterson (2026-10-13)
 
 ### Examples
 
@@ -792,8 +759,6 @@ $$
 
 **References.** [@mohan2013graphical]
 
-*Contributed by:* Emily Peterson (2026-10-13)
-
 ### Perspective: Causal inference (selection bias and data fusion)
 
 **Definition.** A query is recoverable from selection-biased data if it can be computed from the
@@ -813,8 +778,6 @@ with the hypothesis extended to include any external distributions that are avai
 
 **References.** [@bareinboim2014recovering; @bareinboim2016causal]
 
-*Contributed by:* Emily Peterson (2026-10-13)
-
 ### Perspective: Inverse problems and compressed sensing
 
 **Definition.** "Recovery" means reconstructing a signal exactly or stably from incomplete
@@ -831,8 +794,6 @@ if $\hat{x} = x$. For randomly sampled Fourier measurements, exact recovery hold
 probability once $m$ exceeds a constant multiple of $s \log n$.
 
 **References.** [@candes2006robust]
-
-*Contributed by:* Emily Peterson (2026-10-13)
 
 ### Proposed LENS usage
 
@@ -989,18 +950,6 @@ These distinctions are easily blurred, and each changes what an analyst may vali
 
 Empty cells are invitations: if your field has a term, add it.
 
-## Same word, different meaning
-
-- **"Identification"** in causal inference concerns an *estimand* given a causal model. In
-  parametric statistics it concerns *parameters* given a probability model.
-  [@pearl2009causality; @rothenberg1971identification]
-- **"Recovery"** in compressed sensing means reconstructing a signal under sparsity. In
-  missing-data work it means computing a quantity from the observed-data distribution.
-  [@candes2006robust; @mohan2013graphical]
-- **"Structural"** means "intrinsic to the model equations" in systems biology, but "the causal
-  or economic model behind the reduced form" in econometrics.
-  [@bellman1970structural; @koopmans1949identification]
-
 <!-- =========================================================================================
      PART: OPEN QUESTIONS
      ==================================================================================== -->
@@ -1009,7 +958,7 @@ Empty cells are invitations: if your field has a term, add it.
 
 # Open questions {#open-questions-all}
 
-Questions LENS cannot yet answer, collected from talks, the concepts above, and discussion. Each
+Questions LENS cannot yet answer, collected from the concepts above and from discussion. Each
 item carries a status label ([see Purpose and scope](#purpose)) and says where it was raised.
 When a question is resolved, or turns into a project, update its label and note the outcome
 here rather than deleting it.
@@ -1062,11 +1011,6 @@ inferential or computational question:
 | One definition of recoverability, or several labelled ones? | *(proposed)* | [Recoverability](#recoverability) |
 | When does posterior concentration imply point recoverability, and vice versa? | *(proposed)* | [Recoverability](#recoverability) |
 | When do the fibre tangent space and Bayesian prior-persistent directions coincide? | *(proposed)* | [Identifiability](#identifiability) |
-
-## Raised in talks
-
-*(none yet)* Add the talk date and speaker, e.g. "(under discussion; LENS monthly 2026-11-03,
-Speaker Name)".
 
 <!-- =========================================================================================
      PART: REFERENCES
