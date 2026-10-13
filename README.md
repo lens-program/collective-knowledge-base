@@ -1,35 +1,19 @@
-# LENS Knowledge Base
+# LENS Collective Knowledge Base
 
-A living, cross-disciplinary reference on **identifiability, recoverability, and related
-concepts**, maintained by members of the [LENS Program](https://github.com/lens-program).
+One living document on **identifiability, recoverability, and related concepts**, maintained by
+members of the [LENS Program](https://github.com/lens-program). It collects definitions from
+different fields side by side, with citations and contributor names, along with connections
+between concepts and open questions.
 
-**Site:** https://lens-program.github.io/collective-knowledge-base/
+**Read it:** https://lens-program.github.io/collective-knowledge-base/
 
-Each concept page collects definitions from different fields side by side, with citations and
-contributor attribution. Seminar notes link back to the concepts they touch, and unresolved
-questions go into a shared Open Problems list.
+## Files
 
-## Layout
-
-| Path | What |
+| File | What |
 |---|---|
-| `concepts/` | One `.qmd` per concept; `_template.qmd` is the entry template |
-| `seminars/` | Notes from LENS talks; `_template.qmd` is the notes template |
-| `connections.qmd` | Relationships among concepts and cross-field equivalences |
-| `open-problems.qmd` | Open questions |
-| `references.bib` | Shared bibliography (BibTeX) |
-| `CONTRIBUTING.md` | How to contribute (also rendered on the site) |
-| `.github/workflows/publish.yml` | Renders with Quarto and deploys to GitHub Pages on push to `main` |
+| `terminology-and-references.qmd` | The document. Edit this to add definitions, examples, or questions |
+| `references.bib` | Shared bibliography (BibTeX); cite entries in the document as `[@key]` |
+| `_quarto.yml` | Site settings |
+| `.github/workflows/publish.yml` | Rebuilds and publishes the site when the document changes |
 
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md). The short version: add a definition next to the
-existing ones instead of overwriting them, cite it, and sign it.
-
-## Building locally
-
-Requires [Quarto](https://quarto.org/docs/get-started/).
-
-```bash
-quarto preview
-```
+To preview locally: `quarto preview` (requires [Quarto](https://quarto.org)).

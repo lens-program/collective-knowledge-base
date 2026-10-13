@@ -2,46 +2,20 @@ project:
   type: website
   output-dir: _site
   render:
-    - "**/*.qmd"
+    - terminology-and-references.qmd
 
 website:
-  title: "LENS Knowledge Base"
-  description: "A living, cross-disciplinary reference on identifiability, recoverability, and related concepts."
+  title: "LENS Collective Knowledge Base"
   site-url: "https://lens-program.github.io/collective-knowledge-base/"
   repo-url: "https://github.com/lens-program/collective-knowledge-base"
-  repo-actions: [edit, issue]
-  page-navigation: true
+  repo-actions: [edit]
   search: true
   navbar:
-    left:
-      - text: "Concepts"
-        href: concepts/index.qmd
-      - text: "Connections"
-        href: connections.qmd
-      - text: "Seminars"
-        href: seminars/index.qmd
-      - text: "Open problems"
-        href: open-problems.qmd
-      - text: "References"
-        href: references.qmd
     right:
-      - text: "Contribute"
-        href: contribute.qmd
       - text: "LENS Program"
         href: "https://lens-program.github.io/lens-program/"
       - icon: github
         href: "https://github.com/lens-program/collective-knowledge-base"
-  sidebar:
-    - title: "Concepts"
-      contents:
-        - concepts/index.qmd
-        - concepts/identifiability.qmd
-        - concepts/structural-non-identifiability.qmd
-        - concepts/practical-identifiability.qmd
-        - concepts/partial-identification.qmd
-        - concepts/recoverability.qmd
-  page-footer:
-    center: "LENS Program · Learning, Estimation, and Nonidentifiability in Statistics · contributions are attributed on each page"
 
 bibliography: references.bib
 link-citations: true
@@ -50,5 +24,6 @@ format:
   html:
     theme: cosmo
     toc: true
-    number-sections: false
+    toc-depth: 3
+    toc-expand: 1
     html-math-method: katex
