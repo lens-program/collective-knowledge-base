@@ -11,8 +11,8 @@ between concepts and open questions.
 
 | File | What |
 |---|---|
-| `terminology-and-references.qmd` | The document. Edit this to add definitions, examples, or questions |
-| `references.bib` | Shared bibliography (BibTeX); cite entries in the document as `[@key]` |
+| [`terminology-and-references.qmd`](terminology-and-references.qmd) | The document. [Read it on the website](https://lens-program.github.io/collective-knowledge-base/) · [edit it on GitHub](https://github.com/lens-program/collective-knowledge-base/edit/main/terminology-and-references.qmd) |
+| [`references.bib`](references.bib) | Shared bibliography (BibTeX); cite entries in the document as `[@key]` |
 | `_quarto.yml` | Site settings |
 | `.github/workflows/publish.yml` | Rebuilds and publishes the site when the document changes |
 
