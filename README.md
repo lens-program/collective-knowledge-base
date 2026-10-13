@@ -26,22 +26,26 @@ Everything can be done in the browser. You do not need to install anything or kn
    **pencil icon** (Edit this file), top right. Or use
    [this direct edit link](https://github.com/lens-program/collective-knowledge-base/edit/main/terminology-and-references.qmd).
 2. Find the section you want. Each part and each concept starts with a banner like
-   `PART: CONCEPTS` or `CONCEPT: Identifiability`; use **Ctrl+F / Cmd+F** to jump to one.
+   `PART: OPEN QUESTIONS` or `CONCEPT: Identifiability`; use **Ctrl+F / Cmd+F** to jump to one.
 3. Make your addition:
-   - **A definition from your field:** under the concept's `### Definitions across fields`,
-     add a new subsection `#### Your field name` with the definition and a citation. Do not
-     rewrite another field's definition. If you disagree with one, say so under
-     `### Connections and distinctions`.
+   - **A definition from your field:** add a new perspective block after the concept's last
+     `### Perspective:` block. Copy the template in the comment under the
+     `PART: TERMINOLOGY AND MATHEMATICAL DEFINITIONS` banner. Each perspective has four parts:
+     **Definition** (in words), **Mathematical formulation** (in notation, with the assumptions
+     it needs), **References**, and *Contributed by*. Do not rewrite another field's
+     perspective. If you disagree with one, say so under `### Connections and distinctions`.
    - **An example or open question:** add a bullet under that concept's `### Examples` or
-     `### Open questions`. Start open questions with *(open)*.
+     `### Open questions`. Label it *(proposed)*, *(under discussion)*, or *(resolved)*, and add it to the table in `PART: OPEN QUESTIONS`.
    - **A new concept:** copy one whole concept, from its `CONCEPT:` banner down to the next
-     banner, paste it after the last concept, and replace the text. Give the heading a short
+     banner, paste it after the last concept, and replace the text. Add a row for it to the
+     *Terminology at a glance* table at the top. Give the heading a short
      id, e.g. `## Generic identifiability {#generic-identifiability}`.
    - **A connection between concepts:** add it under `### Connections and distinctions`, or
      to the table in `PART: CONNECTIONS ACROSS FIELDS`. Mark it *(proposed)* unless it is an
      established result.
 4. Add a row with your name, the date, and what you added to the concept's
-   `### Contributors` table.
+   `### Contributors` table. If you added a perspective, update its row in the
+   *Terminology at a glance* table too.
 5. Click **Commit changes…**, write a one-line description (e.g. "Add Bayesian definition of
    recoverability"), and commit. The website updates within a few minutes.
 

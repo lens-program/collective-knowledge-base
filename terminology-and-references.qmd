@@ -6,32 +6,79 @@ aliases:
   - index.html
 nocite: |
   @*
+number-sections: true
+number-depth: 2
 ---
 
-A single living document maintained by members of the
-[LENS Program](https://lens-program.github.io/lens-program/). It collects how identifiability,
-recoverability, and related ideas are defined and used in different fields, side by side, so we
-can see where fields agree, where the same word means different things, and what is still
-unknown.
-
-**Adding to it.** Anyone in LENS can add a definition, example, reference, or question. Add your
-field's definition *next to* the existing ones rather than rewriting them, and add your name to
-the contributors table. Step-by-step instructions for editing this document and adding
-references are in the
-[repository README](https://github.com/lens-program/collective-knowledge-base#how-to-contribute).
-Nothing here is a LENS consensus unless the text says the group agreed on it.
-
 <!-- =========================================================================================
-     PART: CONCEPTS
+     PART: PURPOSE AND SCOPE
      ==================================================================================== -->
 
 * * *
 
-# Concepts {#concepts}
+# Purpose and scope {#purpose}
 
-Each concept follows the same outline: core question, definitions across fields, formal
-statement, examples, connections and distinctions, open questions, contributors. To add a
-concept, copy the outline from any existing one.
+This is a single living document maintained by members of the
+[LENS Program](https://lens-program.github.io/lens-program/). It records how identifiability,
+recoverability, and related ideas are defined in different fields, **each with its own
+mathematical formulation**, so the frameworks can be compared directly. The aim is to find
+where fields agree, where the same word means different things, and what is still unknown.
+
+This is a **preliminary working resource**. Corrections, additions, and alternative
+formulations are welcome, and nothing here is a LENS consensus unless the text says the group
+agreed on it. Step-by-step instructions for editing this document and adding references are in
+the [repository README](https://github.com/lens-program/collective-knowledge-base#how-to-contribute).
+
+**Labels used throughout**
+
+- *(proposed)*: a connection or interpretation offered by a contributor and not yet discussed.
+- *(under discussion)*: raised at a LENS meeting or talk; the group has not settled it.
+- *(resolved)*: the group discussed it and agreed; the text records what was agreed and when.
+
+## Terminology at a glance {#at-a-glance}
+
+| Concept | Core question | Perspectives currently represented |
+|---|---|---|
+| [Identifiability](#identifiability) | Is the target uniquely determined by the observable distribution? | Parametric statistics, econometrics, causal inference, dynamical systems, Bayesian inference |
+| [Structural non-identifiability](#structural-non-identifiability) | Does the model itself prevent unique determination, even with perfect data? | Dynamical systems, statistical ecology, parametric statistics |
+| [Practical identifiability](#practical-identifiability) | Can the target be estimated with useful precision from the data at hand? | Dynamical systems, econometrics, Bayesian inference |
+| [Partial identification](#partial-identification) | When point identification fails, how far do the data narrow the target down? | Econometrics, Bayesian inference |
+| [Recoverability](#recoverability) | Which targets can still be learned when the full model is not identifiable? | Missing data, causal inference, inverse problems; proposed LENS usage |
+
+<!-- =========================================================================================
+     PART: TERMINOLOGY AND MATHEMATICAL DEFINITIONS
+     ====================================================================================
+
+     Every concept uses the same outline:
+       ## Concept name {#concept-id}
+       ### Core question
+       ### Perspective: <field>          (one block per field; add yours as a new block)
+       ### Examples
+       ### Connections and distinctions
+       ### Open questions
+       ### Contributors
+
+     Template for a new perspective (copy, paste after the last perspective, fill in):
+
+       ### Perspective: Field name
+
+       **Definition.** The definition in words, as used in this field.
+
+       **Mathematical formulation.**
+       $$ ... $$
+
+       **References.** [@key]
+
+       *Contributed by:* Name (YYYY-MM-DD)
+-->
+
+* * *
+
+# Terminology and mathematical definitions {#concepts}
+
+Each concept has a short core question, followed by one block per disciplinary perspective.
+Every perspective gives its own definition, mathematical formulation, and references, so it can
+be read on its own and compared with the others.
 
 <!-- -----------------------------------------------------------------------------------------
      CONCEPT: Identifiability
@@ -44,95 +91,159 @@ concept, copy the outline from any existing one.
 
 ### Core question
 
-If we knew the distribution of the observable data exactly, with infinite data, could we pin
-down the quantity of interest uniquely? Identifiability is a property of the **model and the
-observation scheme**, not of a particular dataset or estimator.
+If we knew the distribution of the observable data exactly, could we determine the target
+quantity uniquely? Identifiability is a property of the **model and the observation scheme**,
+not of a particular dataset or estimator.
 
-### Definitions across fields
+### Perspective: Parametric statistical models
 
-#### Parametric statistical models
+**Definition.** A model is identifiable when distinct parameter values imply distinct
+distributions of the observable data.
 
-> A model $\{P_\theta : \theta \in \Theta\}$ is identifiable if the map $\theta \mapsto P_\theta$
-> is one-to-one: $\theta_1 \neq \theta_2 \Rightarrow P_{\theta_1} \neq P_{\theta_2}$.
-> [@rothenberg1971identification; @paulino1994identifiability]
+**Mathematical formulation.** For a model $\mathcal{P} = \{P_\theta : \theta \in \Theta\}$:
 
-#### Econometrics
+$$
+P_{\theta_1} = P_{\theta_2} \implies \theta_1 = \theta_2 \qquad \text{for all } \theta_1, \theta_2 \in \Theta .
+$$
 
-> The structural parameters of an economic model are identified if they can be recovered
-> uniquely from the distribution of observables, classically from the reduced form.
-> [@koopmans1949identification]
+Common variants:
 
-The word "identification" covers many distinct notions in econometrics: point, set, local,
-generic, weak, and others. @lewbel2019identification surveys them.
-
-#### Causal inference
-
-> A causal estimand is identifiable, given a causal model (e.g. a DAG) and its assumptions, if
-> it can be written as a unique functional of the observed-data distribution. Every model
-> consistent with the assumptions and the observed distribution must give it the same value.
-> [@pearl2009causality]
-
-Here the object being identified is an **estimand**, not necessarily a model parameter.
-
-#### Systems biology and dynamical systems
-
-> A model is *structurally* identifiable if its parameters are uniquely determined by the
-> model output under ideal conditions: noise-free, continuous observation of the measured
-> outputs. [@bellman1970structural]
-
-See [structural non-identifiability](#structural-non-identifiability) and
-[practical identifiability](#practical-identifiability).
-
-#### Bayesian inference
-
-Identifiability is not required for a proper posterior. With a proper prior, a nonidentified
-model still gives a well-defined posterior, and the data can update beliefs about nonidentified
-parameters *through* their prior dependence on identified ones. If $\theta = (\theta_I,
-\theta_N)$, where the likelihood depends only on $\theta_I$, then
-$p(\theta_N \mid \theta_I, y) = p(\theta_N \mid \theta_I)$: the data never update the
-*conditional* prior. [@poirier1998revising; @gustafson2015bayesian]
-
-### Formal statement
-
-Let $\mathcal{P} = \{P_\theta : \theta \in \Theta\}$.
-
-- **Global identifiability:** $P_{\theta_1} = P_{\theta_2} \Rightarrow \theta_1 = \theta_2$ for
-  all $\theta_1, \theta_2 \in \Theta$.
-- **Local identifiability at $\theta_0$:** the same implication holds within some open
-  neighbourhood of $\theta_0$. Under regularity conditions this is equivalent to a nonsingular
-  information matrix at $\theta_0$. [@rothenberg1971identification]
-- **Generic identifiability:** identifiability holds everywhere except on a measure-zero
-  subset of $\Theta$. [@allman2009identifiability]
-- **Identifiability of a functional $\psi(\theta)$:** $P_{\theta_1} = P_{\theta_2} \Rightarrow
+- **Local identifiability at $\theta_0$:** the implication holds for all $\theta_1, \theta_2$
+  in some open neighbourhood of $\theta_0$.
+- **Information-matrix criterion:** suppose the model is regular (smooth densities with common
+  support, so that the information matrix $I(\theta)$ exists and is continuous), and $\theta_0$
+  is a *regular point* of $I(\theta)$, meaning $I(\theta)$ has constant rank in a neighbourhood
+  of $\theta_0$. Then $\theta_0$ is locally identifiable if and only if $I(\theta_0)$ is
+  nonsingular. Without the regular-point condition, the equivalence can fail.
+- **Generic identifiability:** identifiability holds for all $\theta$ outside a subset of
+  $\Theta$ of Lebesgue measure zero.
+- **Identifiability of a functional $\psi(\theta)$:** $P_{\theta_1} = P_{\theta_2} \implies
   \psi(\theta_1) = \psi(\theta_2)$. A functional can be identified when $\theta$ is not.
+
+**References.** [@rothenberg1971identification; @paulino1994identifiability;
+@allman2009identifiability]
+
+*Contributed by:* Emily Peterson (2026-10-13)
+
+### Perspective: Econometrics
+
+**Definition.** The structural parameters of an economic model are identified if they can be
+recovered uniquely from the distribution of observables. Classically, this means recovering them
+from the reduced form.
+
+**Mathematical formulation.** Suppose the distribution of observables depends on the structural
+parameter $\theta$ only through a reduced-form parameter $\pi = g(\theta)$, and $\pi$ is
+determined by that distribution. Then
+
+$$
+\theta \text{ is identified} \iff g \text{ is injective on } \Theta, \quad
+\text{i.e. } g(\theta_1) = g(\theta_2) \implies \theta_1 = \theta_2 .
+$$
+
+The word "identification" covers many distinct notions in econometrics, including point, set,
+local, generic, and weak identification. @lewbel2019identification surveys them.
+
+**References.** [@koopmans1949identification; @lewbel2019identification]
+
+*Contributed by:* Emily Peterson (2026-10-13)
+
+### Perspective: Causal inference
+
+**Definition.** A causal estimand is identifiable if it is uniquely determined by the
+observed-data distribution under the assumed causal model.
+
+**Mathematical formulation.** Let $\mathcal{M}$ be a class of causal models (e.g. all models
+compatible with a given DAG), $\psi(M)$ the causal target, and $P_M$ the observed-data law
+induced by $M$. Then
+
+$$
+P_{M_1} = P_{M_2} \implies \psi(M_1) = \psi(M_2) \qquad \text{for all } M_1, M_2 \in \mathcal{M} .
+$$
+
+The object being identified is an **estimand**, not necessarily a model parameter.
+
+**References.** [@pearl2009causality]
+
+*Contributed by:* Emily Peterson (2026-10-13)
+
+### Perspective: Dynamical systems and systems biology
+
+**Definition.** A model is *structurally* identifiable if its parameters are uniquely determined
+by the model output under ideal conditions: noise-free, continuous observation of the measured
+outputs.
+
+**Mathematical formulation.** For a system
+
+$$
+\dot{x}(t) = f\big(x(t), \theta, u(t)\big), \qquad y(t) = h\big(x(t), \theta\big),
+$$
+
+with known initial conditions and inputs $u$ from an admissible class, the parameter $\theta$ is
+globally structurally identifiable if
+
+$$
+y(t; \theta_1, u) = y(t; \theta_2, u) \ \text{ for all } t \ge 0 \text{ and all admissible } u
+\implies \theta_1 = \theta_2 .
+$$
+
+It is locally structurally identifiable if this holds within a neighbourhood of each $\theta$.
+
+**References.** [@bellman1970structural; @wieland2021structural]
+
+*Contributed by:* Emily Peterson (2026-10-13)
+
+### Perspective: Bayesian inference
+
+**Definition.** Identifiability is not required for a proper posterior. With a proper prior, a
+nonidentified model still has a well-defined posterior. Data can shift beliefs about
+nonidentified parameters only *through* their prior dependence on identified ones.
+
+**Mathematical formulation.** Write $\theta = (\theta_I, \theta_N)$, where the likelihood
+depends on $\theta$ only through $\theta_I$: $p(y \mid \theta) = p(y \mid \theta_I)$. Then
+
+$$
+p(\theta_N \mid \theta_I, y) = p(\theta_N \mid \theta_I), \qquad
+p(\theta_N \mid y) = \int p(\theta_N \mid \theta_I)\, p(\theta_I \mid y)\, d\theta_I .
+$$
+
+The data never update the *conditional* prior of $\theta_N$ given $\theta_I$. The *marginal*
+posterior of $\theta_N$ can still differ from its prior if $\theta_N$ and $\theta_I$ are
+dependent a priori.
+
+**References.** [@poirier1998revising; @gustafson2015bayesian]
+
+*Contributed by:* Emily Peterson (2026-10-13)
 
 ### Examples
 
 - $Y \sim N(a + b, 1)$: $(a, b)$ is not identifiable, but $a + b$ is.
-- Finite mixtures are identifiable only up to relabelling of the components.
-- Misclassified binary exposure: when sensitivity and specificity are unknown, prevalence is
-  not identified from the error-prone measure alone. [@gustafson2005model]
+- Finite mixtures are identifiable at best up to relabelling of the components.
+- Misclassified binary exposure: when sensitivity and specificity are unknown, prevalence is not
+  identified from the error-prone measure alone. [@gustafson2005model]
 
 ### Connections and distinctions
 
+- **Common structure across perspectives:** every formulation above has the form "equal
+  observable law implies equal target". They differ in the target (parameter, reduced-form
+  preimage, causal estimand, ODE parameter) and in the model class over which the implication
+  must hold.
 - **[Structural vs. practical](#structural-non-identifiability):** a model can be identifiable
   in principle and still [practically non-identifiable](#practical-identifiability) with
   finite, noisy data.
-- **[Partial identification](#partial-identification):** when point identification fails,
-  the data may still restrict the quantity to a set.
-- **[Recoverability](#recoverability):** *(proposed)* recoverability asks which
-  functionals can be learned, and may hold when the full parameter is not identifiable.
-- **Observability** (control theory): whether the system state can be reconstructed from
-  outputs. It is the state analogue of parameter identifiability. *(needs a reference and an
-  entry)*
-
+- **[Partial identification](#partial-identification):** when point identification fails, the
+  data may still restrict the target to a set.
+- **[Recoverability](#recoverability):** *(proposed)* recoverability asks which functionals
+  can be learned, and may hold when the full parameter is not identifiable.
+- **Observability** (control theory): whether the system *state* can be reconstructed from
+  outputs. It is the state analogue of parameter identifiability. *(proposed; needs a reference
+  and its own entry)*
 
 ### Open questions
 
-- *(open)* Is there a common definition that covers parameters (statistics), estimands (causal
-  inference), and states (control theory)? Or are these different questions?
-- *(open)* How should "identified" be reported when it holds generically but fails at the
-  parameter values that matter scientifically, e.g. at the boundary?
+- *(proposed)* Is there a common definition that covers parameters (statistics), estimands
+  (causal inference), and states (control theory)? Or are these different questions?
+- *(proposed)* How should "identified" be reported when identifiability holds generically but
+  fails at the parameter values that matter scientifically, e.g. on a boundary?
 
 ### Contributors
 
@@ -151,68 +262,107 @@ Let $\mathcal{P} = \{P_\theta : \theta \in \Theta\}$.
 
 ### Core question
 
-Does the model structure itself prevent the parameter from being determined, even with perfect,
+Does the model structure itself prevent the target from being determined, even with perfect,
 noise-free, unlimited data? Collecting more of the same data cannot fix structural
 non-identifiability. Only changing the model, the observations, or the information supplied
 (constraints, priors, external data) can.
 
-### Definitions across fields
+### Perspective: Parametric statistical models
 
-#### Systems biology and dynamical systems
+**Definition.** The model fails to be identifiable: distinct parameter values produce the same
+distribution of the observables.
 
-> A parameter is structurally non-identifiable when it cannot be determined uniquely even from
-> ideal, noise-free model output. This typically happens because of a functional relationship
-> among parameters (a manifold of parameter values that produce the same output).
-> [@bellman1970structural; @raue2009structural]
+**Mathematical formulation.** There exist $\theta_1 \neq \theta_2$ in $\Theta$ with
+$P_{\theta_1} = P_{\theta_2}$. Equivalently, for some $\theta_0$ the observational equivalence
+class
 
-In profile-likelihood terms, the profile likelihood of a structurally non-identifiable
-parameter is **flat**. [@raue2009structural]
+$$
+E(\theta_0) = \{\theta \in \Theta : P_\theta = P_{\theta_0}\}
+$$
 
-#### Statistical ecology (parameter redundancy)
+contains more than one point. $E(\theta_0)$ can take different forms:
 
-> A model is parameter-redundant if it can be rewritten in terms of fewer parameters. A
-> parameter-redundant model is not identifiable. [@catchpole1997detecting; @cole2020parameter]
+- a **positive-dimensional set**, e.g. a curve or manifold, when parameters enter only through
+  continuous combinations (as in $a + b$);
+- a **finite or discrete set**, from discrete symmetries such as label switching in mixtures or
+  sign changes of loadings in factor models.
 
-Parameter redundancy is checked symbolically, through the rank of a derivative matrix of an
-exhaustive summary of the model. This gives the number of estimable combinations, and which
-ones they are.
+$E(\theta_0)$ need not be bounded.
 
-#### Statistics
+**References.** [@rothenberg1971identification]
 
-> The model $\{P_\theta\}$ fails to be identifiable: distinct $\theta$ give the same $P_\theta$.
-> See [identifiability](#identifiability). [@rothenberg1971identification]
+*Contributed by:* Emily Peterson (2026-10-13)
 
-### Formal statement
+### Perspective: Dynamical systems and systems biology
 
-There exist $\theta_1 \neq \theta_2$ with $P_{\theta_1} = P_{\theta_2}$. Typically the set
-$\{\theta : P_\theta = P_{\theta_0}\}$ is a manifold of positive dimension. Its dimension is the
-number of parameters minus the number of estimable combinations, i.e. the deficiency in
-@catchpole1997detecting.
+**Definition.** A parameter is structurally non-identifiable when ideal, noise-free model output
+cannot determine it uniquely, typically because of a functional relationship among parameters.
+
+**Mathematical formulation.** There exist $\theta_1 \neq \theta_2$ with $y(t; \theta_1, u) =
+y(t; \theta_2, u)$ for all $t$ and all admissible inputs $u$.
+
+As a diagnostic, @raue2009structural use the profile likelihood
+
+$$
+\mathrm{PL}(\theta_i) = \max_{\theta_{j \neq i}} L(\theta) .
+$$
+
+If the likelihood depends on $\theta$ only through identifiable combinations, it is constant
+along the non-identifiable direction, so $\mathrm{PL}(\theta_i)$ is exactly flat in
+$\theta_i$. This is the idealised structural case. In practice, numerically computed profiles may
+look only approximately flat, depending on the optimiser and the profiling procedure. Discrete
+non-identifiability (e.g. label switching) shows up instead as several equal maxima, not as a
+flat profile.
+
+**References.** [@bellman1970structural; @raue2009structural]
+
+*Contributed by:* Emily Peterson (2026-10-13)
+
+### Perspective: Statistical ecology (parameter redundancy)
+
+**Definition.** A model is parameter-redundant if it can be rewritten in terms of fewer
+parameters. A parameter-redundant model is not identifiable.
+
+**Mathematical formulation.** Let $\kappa(\theta)$ be an *exhaustive summary*, i.e. a vector of
+quantities that determines the model's distribution, with $\theta \in \mathbb{R}^p$. Form the
+derivative matrix
+
+$$
+D(\theta) = \frac{\partial \kappa(\theta)}{\partial \theta}, \qquad r = \operatorname{rank} D(\theta) .
+$$
+
+The model is parameter-redundant if $r < p$. The **deficiency** $d = p - r$ is the number of
+parameters that cannot be estimated, and $r$ is the number of estimable parameter
+combinations.
+
+**References.** [@catchpole1997detecting; @cole2020parameter]
+
+*Contributed by:* Emily Peterson (2026-10-13)
 
 ### Examples
 
-- $Y \sim N(a + b, 1)$: only $a + b$ is estimable; the deficiency is 1.
+- $Y \sim N(a + b, 1)$: only $a + b$ is estimable; $p = 2$, $r = 1$, deficiency 1.
 - Grouped or normalised likelihoods: if a likelihood depends on predictors only through
   within-group shares (e.g. a multinomial allocation within each group), any term that is
   constant within a group cancels and is structurally non-identifiable. An external anchor that
   varies within groups is needed to identify it.
-- Capture–recapture models where survival and capture probability for the final occasion
-  appear only as a product. [@catchpole1997detecting]
+- Capture–recapture models where survival and capture probability on the final occasion appear
+  only as a product. [@catchpole1997detecting]
+- Finite mixtures: relabelling the components gives a discrete equivalence class of size $K!$.
 
 ### Connections and distinctions
 
-- **vs. [practical identifiability](#practical-identifiability):** structural problems come
-  from the model and persist with infinite data; practical problems come from limited, noisy
-  data.
-- **[Partial identification](#partial-identification):** the non-identified direction may
-  still be bounded, giving an identified set rather than a point.
-- **[Recoverability](#recoverability):** *(proposed)* the estimable combinations are
-  exactly the functionals that remain recoverable.
-
+- **vs. [practical identifiability](#practical-identifiability):** structural problems come from
+  the model and persist with infinite data. Practical problems come from limited, noisy data.
+- **[Partial identification](#partial-identification):** the equivalence class $E(\theta_0)$ is
+  the identified set. It may be bounded or unbounded, and continuous or discrete. Partial
+  identification studies its size and shape, often under extra assumptions that shrink it.
+- **[Recoverability](#recoverability):** *(proposed)* the estimable combinations are the
+  functionals that remain point-recoverable.
 
 ### Open questions
 
-- *(open)* Symbolic rank methods scale poorly. What is the right check for high-dimensional
+- *(proposed)* Symbolic rank methods scale poorly. What is the right check for high-dimensional
   hierarchical or spatial models with thousands of latent effects?
 
 ### Contributors
@@ -233,38 +383,69 @@ number of parameters minus the number of estimable combinations, i.e. the defici
 ### Core question
 
 The model may be identifiable in principle. But with the finite, noisy data we actually have,
-can the parameter be estimated precisely enough to be useful? Practical non-identifiability is
-a property of the **model together with the data**. More or better data can fix it.
+can the target be estimated precisely enough to be useful? Practical non-identifiability is a
+property of the **model together with the data**, and more or better data can fix it.
 
-### Definitions across fields
+There is no single, framework-free definition. Each perspective below gives a **field-specific
+operational criterion**.
 
-#### Systems biology and dynamical systems
+### Perspective: Dynamical systems and systems biology
 
-> A structurally identifiable parameter is practically non-identifiable if its likelihood-based
-> confidence interval extends to infinity in at least one direction, given the available data.
-> [@raue2009structural; @wieland2021structural]
+**Definition.** A structurally identifiable parameter is practically non-identifiable if its
+likelihood-based confidence interval, given the available data, extends to infinity in at
+least one direction.
 
-#### Econometrics (weak identification)
+**Mathematical formulation.** With profile likelihood $\mathrm{PL}(\theta_i)$ and maximum
+likelihood estimate $\hat\theta$, the profile-likelihood confidence region at level $1-\alpha$
+is
 
-> A parameter is weakly identified when the data contain little information about it. In
-> instrumental-variable and GMM settings, this happens when the instruments are only weakly
-> related to the endogenous variables, and standard asymptotic approximations break down.
-> [@stock2002survey]
+$$
+\mathrm{CI}_{1-\alpha}(\theta_i) = \Big\{ \theta_i : -2 \log \frac{\mathrm{PL}(\theta_i)}{L(\hat\theta)} < \chi^2_{1,\,1-\alpha} \Big\} .
+$$
 
-#### Bayesian inference
+$\theta_i$ is practically non-identifiable if this region is unbounded above or below.
 
-There is no single definition. A common working notion: the posterior for the parameter is
-dominated by the prior, so the prior and posterior overlap heavily. In latent class models,
-@garrett2000latent use the prior–posterior overlap of each parameter as a diagnostic.
+**References.** [@raue2009structural; @wieland2021structural]
 
-### Formal statement
+*Contributed by:* Emily Peterson (2026-10-13)
 
-*(no single formal definition)* Each field operationalises the idea differently:
+### Perspective: Econometrics (weak identification)
 
-- profile-likelihood interval unbounded at a chosen confidence level [@raue2009structural];
-- weak-instrument asymptotics, where identification strength shrinks with sample size
-  [@stock2002survey];
-- prior–posterior overlap above a threshold [@garrett2000latent].
+**Definition.** A parameter is weakly identified when the data carry little information about
+it. In instrumental-variable and GMM settings, this happens when the instruments are only weakly
+related to the endogenous variables, and standard asymptotic approximations become unreliable.
+
+**Mathematical formulation.** In the linear IV model
+
+$$
+y = X\beta + u, \qquad X = Z\pi + v,
+$$
+
+weak instruments are modelled as local to zero, $\pi = C / \sqrt{n}$ for fixed $C$, so the
+strength of identification does not grow with the sample size. Under this sequence, the
+two-stage least squares estimator is not consistent and its usual normal approximation fails.
+
+**References.** [@staiger1997instrumental; @stock2002survey]
+
+*Contributed by:* Emily Peterson (2026-10-13)
+
+### Perspective: Bayesian inference
+
+**Definition.** One working criterion is that a parameter is weakly identified by the data when
+its posterior remains dominated by the prior. This is one operational check, not a definition.
+
+**Mathematical formulation.** The prior–posterior overlap for a parameter $\theta_j$ is
+
+$$
+\tau_j = \int \min\big\{ p(\theta_j),\ p(\theta_j \mid y) \big\}\, d\theta_j \in [0, 1] ,
+$$
+
+and large values flag parameters about which the data say little. @garrett2000latent use this
+diagnostic in latent class models.
+
+**References.** [@garrett2000latent]
+
+*Contributed by:* Emily Peterson (2026-10-13)
 
 ### Examples
 
@@ -276,20 +457,22 @@ dominated by the prior, so the prior and posterior overlap heavily. In latent cl
 
 ### Connections and distinctions
 
-- **vs. [structural non-identifiability](#structural-non-identifiability):** see that page.
-  The profile likelihood is flat in the structural case, and finite but wide or one-sided in
-  the practical case.
-- **[Recoverability](#recoverability):** *(proposed)* practical identifiability is
-  identifiability judged at the precision the data can deliver; recoverability asks the same
-  question about functionals.
-
+- **vs. [structural non-identifiability](#structural-non-identifiability):** in the structural
+  case the profile likelihood is flat for every dataset. In the practical case it is finite but
+  wide or one-sided for the data at hand.
+- **Across perspectives:** the three criteria answer different questions. The profile
+  likelihood measures interval width, weak-instrument asymptotics measure how identification
+  strength scales with $n$, and prior–posterior overlap measures prior dominance. They need not
+  agree. *(proposed)*
+- **[Recoverability](#recoverability):** *(proposed)* practical identifiability is to
+  identifiability what precise recovery is to recoverability.
 
 ### Open questions
 
-- *(open)* Is there a definition of practical identifiability that is not tied to a particular
-  inferential framework (likelihood, GMM, Bayesian)?
-- *(open)* How should practical identifiability be assessed for spatial and hierarchical models,
-  where information differs by component and location?
+- *(proposed)* Is there a definition of practical identifiability that is not tied to a
+  particular inferential framework (likelihood, GMM, Bayesian)?
+- *(proposed)* How should practical identifiability be assessed for spatial and hierarchical
+  models, where information varies across components and locations?
 
 ### Contributors
 
@@ -309,57 +492,81 @@ dominated by the prior, so the prior and posterior overlap heavily. In latent cl
 ### Core question
 
 Point identification fails. Can the observable distribution, together with credible
-assumptions, still restrict the quantity to a set, and how small is that set?
+assumptions, still restrict the target to a set, and how small is that set?
 
-### Definitions across fields
+### Perspective: Econometrics
 
-#### Econometrics
+**Definition.** A parameter is partially identified when the observable distribution, combined
+with the maintained assumptions, restricts it to a set (the *identified set*) that is larger than
+a point but smaller than the whole parameter space. The emphasis is on weak, credible
+assumptions that yield bounds, rather than strong assumptions that yield a point.
 
-> A parameter is partially identified when the observable distribution, combined with the
-> maintained assumptions, restricts it to a set (the *identified set*) that is larger than a
-> point but smaller than the whole parameter space.
-> [@manski2003partial; @tamer2010partial]
+**Mathematical formulation.** With observed-data distribution $P_0$:
 
-The emphasis is on weak, credible assumptions that yield bounds, rather than strong
-assumptions that yield a point.
+$$
+\Theta_I = \{\theta \in \Theta : P_\theta = P_0\}, \qquad
+\Psi_I = \{\psi(\theta) : \theta \in \Theta_I\} .
+$$
 
-#### Bayesian inference
+In many applications $\Theta_I$ is defined by moment inequalities, $\Theta_I = \{\theta :
+E_{P_0}[m(W, \theta)] \le 0\}$. Point identification is the special case where $\Psi_I$ is a
+single point.
 
-> In a partially identified model, the posterior does not concentrate on a point as $n \to
-> \infty$. It converges to a limiting distribution over the identified set, and the shape of
-> that distribution is set by the prior. [@gustafson2015bayesian]
+**References.** [@manski2003partial; @tamer2010partial]
 
-@moon2012bayesian show that Bayesian credible sets and frequentist confidence sets for the
-identified set can disagree even asymptotically.
+*Contributed by:* Emily Peterson (2026-10-13)
 
-### Formal statement
+### Perspective: Bayesian inference
 
-Given the observed-data distribution $P_0$ and model $\{P_\theta\}$, the identified set is
-$\Theta_I = \{\theta \in \Theta : P_\theta = P_0\}$. For a functional, it is $\Psi_I =
-\{\psi(\theta) : \theta \in \Theta_I\}$. Point identification is the special case where
-$\Psi_I$ is a single point.
+**Definition.** In a partially identified model, the posterior does not concentrate on a point
+as $n \to \infty$. It converges to a limiting distribution over the identified set, whose shape
+is determined by the prior.
+
+**Mathematical formulation.** Use a *transparent* reparameterisation $\theta \mapsto (\phi,
+\lambda)$, where the likelihood depends only on $\phi$. Then
+
+$$
+p(\phi, \lambda \mid y) = p(\phi \mid y)\, p(\lambda \mid \phi),
+$$
+
+and as $n \to \infty$, $p(\phi \mid y)$ concentrates at the true $\phi_0$. The limiting posterior
+of $\lambda$ is therefore the conditional prior $p(\lambda \mid \phi_0)$, supported on the
+identified set.
+
+@moon2012bayesian show that, asymptotically, Bayesian credible sets for a partially identified
+parameter can be strictly smaller than frequentist confidence sets for its identified set.
+
+**References.** [@gustafson2015bayesian; @moon2012bayesian]
+
+*Contributed by:* Emily Peterson (2026-10-13)
 
 ### Examples
 
-- Bounds on a mean with missing outcomes and no assumption about the missingness mechanism
-  (worst-case bounds). [@manski2003partial]
+- Mean of an outcome $Y \in [0, 1]$ with missing values (missingness indicator $D = 1$ when
+  observed) and no assumption about the missingness mechanism:
+
+  $$
+  E[Y \mid D=1]\,P(D=1) \;\le\; E[Y] \;\le\; E[Y \mid D=1]\,P(D=1) + P(D=0) .
+  $$
+
+  [@manski2003partial]
 - Misclassification with sensitivity and specificity known only to lie in ranges.
   [@gustafson2005model]
 
 ### Connections and distinctions
 
 - **[Identifiability](#identifiability):** point identification is the degenerate case.
-- **[Structural non-identifiability](#structural-non-identifiability):** structural
-  non-identifiability produces an identified set; partial identification studies its size and
-  shape.
-- **[Recoverability](#recoverability):** *(proposed)* a functional that is constant over
-  $\Theta_I$ is fully recoverable even when $\theta$ is only partially identified.
-
+- **[Structural non-identifiability](#structural-non-identifiability):** the observational
+  equivalence class is the identified set when no further assumptions are added. It need not be
+  bounded or of positive dimension.
+- **[Recoverability](#recoverability):** *(proposed)* a functional constant over $\Theta_I$ is
+  point-recoverable. A functional whose identified set $\Psi_I$ is a proper subset of its range
+  is recoverable only up to bounds, which is a weaker property.
 
 ### Open questions
 
-- *(open)* How should we report uncertainty when part of it can be reduced with more data and
-  part of it never can?
+- *(proposed)* How should we report uncertainty when part of it can be reduced with more data
+  and part of it never can?
 
 ### Contributors
 
@@ -378,73 +585,114 @@ $\Psi_I$ is a single point.
 
 ### Core question
 
-Given the data and the model we have, which target quantities can be learned (recovered), even
-when the model as a whole is not identifiable?
+Given the data and the model we have, which targets can be learned (recovered), even when the
+model as a whole is not identifiable?
 
-### Definitions across fields
+"Recoverability" is used in several established, field-specific senses, listed first below. A
+broader LENS usage is listed separately and is explicitly *proposed*.
 
-#### Missing data (graphical models)
+### Perspective: Missing data (graphical models)
 
-> A target quantity (e.g. a joint distribution or a causal effect) is recoverable if it can be
-> computed consistently from the distribution of the observed, partially missing data, given
-> the assumptions encoded in a missingness graph (m-graph). [@mohan2013graphical]
+**Definition.** A target quantity (e.g. a joint distribution or a causal effect) is recoverable
+if it can be computed consistently from the distribution of the observed, partially missing
+data, given the assumptions encoded in a missingness graph (m-graph).
 
-#### Causal inference: selection bias and data fusion
+**Mathematical formulation.** Let $G$ be an m-graph and $P^{\text{obs}}_M$ the distribution of
+the observed portion of the data, including the missingness indicators, under model $M$. A
+query $Q$ is recoverable if
 
-> A query is recoverable from selection-biased data if it can be computed from the distribution
-> of the selected sample, possibly together with external unbiased data, under the assumptions
-> in the causal graph. [@bareinboim2014recovering; @bareinboim2016causal]
+$$
+P^{\text{obs}}_{M_1} = P^{\text{obs}}_{M_2} \implies Q(M_1) = Q(M_2)
+\qquad \text{for all } M_1, M_2 \text{ compatible with } G .
+$$
 
-#### Inverse problems and compressed sensing
+**References.** [@mohan2013graphical]
 
-> "Recovery" of a signal refers to reconstructing it exactly or stably from incomplete
-> measurements under structural conditions such as sparsity.
-> [@candes2006robust]
+*Contributed by:* Emily Peterson (2026-10-13)
 
-#### LENS working usage
+### Perspective: Causal inference (selection bias and data fusion)
 
-> *(interpretation, not settled)* Recoverability asks which **functionals** of a
-> non-identifiable or partially identified model can be learned. These may be identified
-> functionals, functionals with informative bounds, or functionals whose posterior
-> concentrates even though the full parameter's does not.
+**Definition.** A query is recoverable from selection-biased data if it can be computed from the
+distribution of the selected sample, possibly together with external unbiased data, under the
+assumptions in the causal graph.
 
-### Formal statement
+**Mathematical formulation.** Let $S$ indicate selection into the sample, and let $G$ be a
+causal graph that includes $S$. The query $Q$ (e.g. $P(y \mid x)$) is recoverable from selection
+bias if
 
-*(no single formal definition; candidates below)*
+$$
+P_{M_1}(v \mid S = 1) = P_{M_2}(v \mid S = 1) \implies Q(M_1) = Q(M_2)
+\qquad \text{for all } M_1, M_2 \text{ compatible with } G ,
+$$
 
-- **Identified functional:** $\psi$ is recoverable if $P_{\theta_1} = P_{\theta_2} \Rightarrow
-  \psi(\theta_1) = \psi(\theta_2)$. See [identifiability](#identifiability).
-- **Graphical recoverability:** $Q$ is recoverable if $Q(M_1) = Q(M_2)$ for every pair of models
-  $M_1, M_2$ compatible with the graph that agree on the observed-data distribution.
-  [@mohan2013graphical]
-- **Bayesian learning** *(proposed)*: the posterior for $\psi$ differs from its prior, or
-  concentrates, as $n \to \infty$. [@gustafson2015bayesian]
+with the hypothesis extended to include any external distributions that are available.
+
+**References.** [@bareinboim2014recovering; @bareinboim2016causal]
+
+*Contributed by:* Emily Peterson (2026-10-13)
+
+### Perspective: Inverse problems and compressed sensing
+
+**Definition.** "Recovery" means reconstructing a signal exactly or stably from incomplete
+measurements, under structural conditions such as sparsity.
+
+**Mathematical formulation.** Observe $y = A x$, where $A \in \mathbb{R}^{m \times n}$ with $m
+< n$, and $x$ has at most $s$ nonzero entries. $x$ is exactly recovered by
+
+$$
+\hat{x} = \arg\min_{z} \|z\|_1 \quad \text{subject to } A z = y
+$$
+
+if $\hat{x} = x$. For randomly sampled Fourier measurements, exact recovery holds with high
+probability once $m$ exceeds a constant multiple of $s \log n$.
+
+**References.** [@candes2006robust]
+
+*Contributed by:* Emily Peterson (2026-10-13)
+
+### Proposed LENS usage
+
+*(proposed; not an established definition)* LENS uses "recoverability" broadly, to ask which
+**functionals** of a non-identifiable or partially identified model can be learned. Several
+distinct properties are in play, and they should be kept separate:
+
+| Property | Formulation | Status |
+|---|---|---|
+| **Point recoverability** | $\psi$ is identified: $P_{\theta_1} = P_{\theta_2} \implies \psi(\theta_1) = \psi(\theta_2)$ | Equivalent to identifiability of a functional |
+| **Recoverability up to bounds** | the identified set $\Psi_I$ is a proper subset of the range of $\psi$ | Weaker than point recoverability; see [partial identification](#partial-identification) |
+| **Posterior learning** | $p(\psi \mid y) \neq p(\psi)$ | *Not* a criterion for recoverability. The posterior can change through prior dependence on identified parameters, even when $\psi$ is not identified by the likelihood |
+| **Posterior concentration** | $p(\psi \mid y)$ concentrates at a point as $n \to \infty$ | Related to point recoverability, but the relationship needs discussion *(under discussion)* |
 
 ### Examples
 
-- $Y \sim N(a + b, 1)$: $a + b$ is recoverable, $a$ is not.
+- $Y \sim N(a + b, 1)$: $a + b$ is point-recoverable; $a$ is not recoverable at all without
+  bounds on $a$ or $b$.
 - Recovering a population distribution from a selected sample when selection depends only on
-  variables that are measured. [@bareinboim2014recovering]
+  measured variables. [@bareinboim2014recovering]
 - Exact recovery of a sparse signal from far fewer Fourier coefficients than the signal length.
   [@candes2006robust]
 
 ### Connections and distinctions
 
 - **vs. [identifiability](#identifiability):** in causal inference and missing-data work,
-  "recoverable" and "identifiable" are close to synonyms; the difference is mainly the setting
-  (missingness or selection). *(proposed; needs discussion)*
-- **[Partial identification](#partial-identification):** a functional constant over the
-  identified set is recoverable. Others are recoverable only up to bounds.
-- **[Practical identifiability](#practical-identifiability):** a recoverable functional can
-  still be estimated imprecisely.
-
+  "recoverable" is close to "identifiable" in a specific data setting (missingness, selection).
+  *(proposed)*
+- **Point recovery vs. bounds:** a functional constant over the identified set is
+  point-recoverable. Others may be recoverable only up to bounds. These are different
+  properties and should be reported differently.
+- **Posterior learning vs. recovery:** a posterior that differs from its prior shows only that
+  the data are informative through the prior structure, not that the target is recovered.
+- **[Practical identifiability](#practical-identifiability):** a point-recoverable functional
+  can still be estimated imprecisely.
 
 ### Open questions
 
-- *(open)* Should LENS adopt one definition of recoverability, or keep several labelled
-  definitions (graphical, Bayesian, bound-based)?
-- *(open)* How can recoverability be diagnosed in practice for complex hierarchical, spatial,
+- *(proposed)* Should LENS adopt one definition of recoverability, or keep several labelled
+  ones (graphical, set-valued, Bayesian)?
+- *(proposed)* How can recoverability be diagnosed in practice for complex hierarchical, spatial,
   or measurement-error models?
+- *(proposed)* When, if ever, does posterior concentration of $\psi$ imply point
+  recoverability, and vice versa?
 
 ### Contributors
 
@@ -460,9 +708,9 @@ when the model as a whole is not identifiable?
 
 # Connections across fields {#connections}
 
-This section maps how the [concepts](#concepts) relate, and where different fields use
-different words for similar ideas. Rows marked *(proposed)* are interpretations awaiting
-discussion, not settled correspondences.
+This section maps how the concepts relate, and where different fields use different words for
+similar ideas. Rows marked *(proposed)* are interpretations awaiting discussion, not settled
+correspondences.
 
 ## How the concepts relate
 
@@ -474,7 +722,7 @@ flowchart LR
   PRI["Practical<br/>identifiability"]
   REC["Recoverability<br/>(of functionals)"]
   SNI -- "failure of" --> ID
-  SNI -- "yields an identified set" --> PI
+  SNI -- "equivalence class = identified set" --> PI
   ID -- "with finite, noisy data" --> PRI
   PI -- "functionals constant on the set" --> REC
   ID -- "of a functional" --> REC
@@ -497,8 +745,8 @@ Empty cells are invitations: if your field has a term, add it.
 - **"Identification"** in causal inference concerns an *estimand* given a causal model. In
   parametric statistics it concerns *parameters* given a probability model.
   [@pearl2009causality; @rothenberg1971identification]
-- **"Recovery"** in compressed sensing is about reconstructing a signal under sparsity. In
-  missing-data work it is about computing a quantity from the observed-data distribution.
+- **"Recovery"** in compressed sensing means reconstructing a signal under sparsity. In
+  missing-data work it means computing a quantity from the observed-data distribution.
   [@candes2006robust; @mohan2013graphical]
 - **"Structural"** means "intrinsic to the model equations" in systems biology, but "the causal
   or economic model behind the reduced form" in econometrics.
@@ -513,12 +761,14 @@ Empty cells are invitations: if your field has a term, add it.
 # Open questions {#open-questions-all}
 
 Questions LENS cannot yet answer, collected from talks, the concepts above, and discussion. Each
-item records who raised it and where. When a question is resolved, or turns into a project,
-note it here rather than deleting it.
+item carries a status label ([see Purpose and scope](#purpose)) and says where it was raised.
+When a question is resolved, or turns into a project, update its label and note the outcome
+here rather than deleting it.
 
 ## From the LENS charter
 
 These are the questions on the [LENS Program page](https://lens-program.github.io/lens-program/).
+All are *(proposed)*.
 
 1. What are the relationships among identifiability, partial identifiability, practical
    identifiability, and recoverability?
@@ -532,20 +782,20 @@ These are the questions on the [LENS Program page](https://lens-program.github.i
 
 ## Raised in the concepts above
 
-- Is there one definition that covers parameters, estimands, and states?
-  ([Identifiability](#identifiability))
-- Checking structural identifiability for high-dimensional hierarchical and spatial models.
-  ([Structural non-identifiability](#structural-non-identifiability))
-- A definition of practical identifiability that does not depend on the inferential framework.
-  ([Practical identifiability](#practical-identifiability))
-- Reporting uncertainty that is part reducible, part irreducible.
-  ([Partial identification](#partial-identification))
-- One definition of recoverability, or several labelled ones?
-  ([Recoverability](#recoverability))
+| Question | Status | Raised in |
+|---|---|---|
+| Is there one definition that covers parameters, estimands, and states? | *(proposed)* | [Identifiability](#identifiability) |
+| How should generic-but-not-everywhere identifiability be reported? | *(proposed)* | [Identifiability](#identifiability) |
+| Checking structural identifiability for high-dimensional hierarchical and spatial models | *(proposed)* | [Structural non-identifiability](#structural-non-identifiability) |
+| A definition of practical identifiability that does not depend on the inferential framework | *(proposed)* | [Practical identifiability](#practical-identifiability) |
+| Reporting uncertainty that is partly reducible and partly irreducible | *(proposed)* | [Partial identification](#partial-identification) |
+| One definition of recoverability, or several labelled ones? | *(proposed)* | [Recoverability](#recoverability) |
+| When does posterior concentration imply point recoverability, and vice versa? | *(proposed)* | [Recoverability](#recoverability) |
 
 ## Raised in talks
 
-*(none yet)*
+*(none yet)* Add the talk date and speaker, e.g. "(under discussion; LENS monthly 2026-11-03,
+Speaker Name)".
 
 <!-- =========================================================================================
      PART: REFERENCES
